@@ -41,9 +41,7 @@ Feature: Atualizar Usuario
             And insiro um E-MAIL valido
             | email | ganso100@gmail.com |
             And aciono o botão CONFIRMAR ALTERAÇÕES
-            Then visualizo a mensagem de alerta
-            | Mensagem de alerta | Tem certeza que deseja alterar suas informações ? |
-            When aciono o botão CONFIRMAR
+            And aciono o botão CONFIRMAR
             Then visualizo a mensagem de sucesso
             | Mensagem de Sucesso | Informações atualizadas com sucesso! |
 
