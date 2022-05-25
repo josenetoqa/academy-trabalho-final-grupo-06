@@ -11,8 +11,9 @@ class Login {
     erroinfoincorreta = '.sc-papXJ'
     boxerro = '.go3958317564'
     emailincorreto = '.sc-papXJ'
+    
     visit(){
-        cy.visit('/')
+        cy.visit('https://academy-lembra-compras.herokuapp.com/login')
     }
     loginemail(email){
         cy.get(this.emaillogin).type(email)    
