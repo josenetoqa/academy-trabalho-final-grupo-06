@@ -1,4 +1,4 @@
-import {login} from "..support/pages/perfilPage.po"
+import {login} from "../pages/perfilPage.po"
 
 Given("acessei a tela de perfil", () => {
   
