@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('teste', function(nome){
+    cy.intercept('GET','https://crud-api-academy.herokuapp.com/api/v1/search?value=teste',{
+         statusCode: 200,
+         body:[
+            {
+                "name": "teste",
+                "email": "t@g.com",
+                "createdAt": "2022-05-10T03:01:22.466Z",
+                "updatedAt": "2022-05-10T03:01:22.466Z"
+            }
+        ]
+      })
+});
