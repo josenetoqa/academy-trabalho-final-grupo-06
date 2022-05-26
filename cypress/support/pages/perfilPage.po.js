@@ -1,23 +1,25 @@
 class Login{
 
+    //elementos
     botãoEntrar = '.sc-ftvSup'
     emailLogin = 'input[name=email]'
     senhaLogin = 'input[name=password]'
     
+    //Ações 
     telaLogin(){
-        cy.visit('https://academy-lembra-compras.herokuapp.com/')
+        cy.visit('https://academy-lembra-compras.herokuapp.com/');
     }
-    loginEmail(email){
-        cy.get(this.emailLogin).type(email)    
+    preencherEmail(email){
+        cy.get(this.emailLogin).type(email);    
     }
-    loginSenha(senha){
-        cy.get(this.senhaLogin).type(senha)
+    preencherSenha(senha){
+        cy.get(this.senhaLogin).type(senha);
     }
-    entrar(){
-        cy.get(this.botãoEntrar).click()
+    clicarEntrar(){
+        cy.get(this.botãoEntrar).click();
 
 
 
 }}
 
-export const pagelogin = new Login(); 
+export default new Login(); 

@@ -1,10 +1,10 @@
-import { pageLogin } from "../pages/perfilPage.po"
+import Login from '..suport/pages/perfilPage.po';
 
 Given("acessei a tela de perfil", () => {
   
    perfilPage.telaLogin();
-   perfilPage.loginEmail().clear();
-   perfilPage.loginEmail();
+   perfilPage.preencherEmail().clear();
+   perfilPage.preencherEmail();
    
 
   }
