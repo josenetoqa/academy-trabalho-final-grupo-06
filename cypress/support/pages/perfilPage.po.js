@@ -7,7 +7,7 @@ class newLogin{
     
     //Ações 
     Login(){
-        cy.visit('https://academy-lembra-compras.herokuapp.com/');
+        cy.visit("https://academy-lembra-compras.herokuapp.com/");
     }
 
     preencherEmail(email){
@@ -23,4 +23,4 @@ class newLogin{
 
 }}
 
-export default new newLogin(); 
+export var login = new newLogin(); 
