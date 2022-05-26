@@ -3,10 +3,9 @@ class Login {
     botãoEntrar = '.sc-ftvSup'
     emailLogin = 'input[name=email]'
     senhaLogin = 'input[name=password]'
-    baseUrl = 'https://academy-lembra-compras.herokuapp.com/'
-
+    
     telaLogin(){
-        cy.visit(this.baseUrl)
+        cy.visit('https://academy-lembra-compras.herokuapp.com/')
     }
     loginEmail(email){
         cy.get(this.emailLogin).type(email)    
@@ -18,8 +17,7 @@ class Login {
         cy.get(this.botãoEntrar).click()
 
 
-
         
 
 }}
-export const Login = new Login(); 
+export const login = new Login(); 

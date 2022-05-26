@@ -1,11 +1,15 @@
-import { Login } from "../pages/perfilPage.po" 
-
-Background // Acessar a tela de PERFIL para realizar as atuallizações de usuario
- Given("acessei a tela de perfil", () => {
-    //login
-    cy.telaLogin("")
-    //acessar tela de Perfil
+import { login } from "../pages/perfilPage.po" 
 
 
+Given("acessei a tela de perfil", () => {
+   //login
+   perfilPage.telaLogin('/');
+   perfilPage.loginEmail().clear();
+   perfilPage.loginEmail();
+   //acessar tela de Perfil
 
-})
+
+  }
+
+  
+)
