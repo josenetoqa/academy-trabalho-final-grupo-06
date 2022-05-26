@@ -32,23 +32,19 @@ Scenario: A quantidade mínima de um item na lista deve ser de 1 unidade
 Scenario: A quantidade máxima de um item na lista deve ser de 1000 unidades
     When realizo o cadastro de uma nova lista
     And  seleciono a quantidade do item com o valor maior que 1000
-    When clico em salvar a lista
+    When salvo a lista criada
     Then vejo a mensagem de erro "insira um valor valido"
 Scenario: Se um item que já existe na lista sofrer uma nova tentativa de ser adicionado utilizando o mesmo nome, a quantidade do item deve ser acrescentada
-    When realizo o cadastro de uma nova lista
+    When realizo o cadastro de uma nova lista 
     And  cadastro um novo item na lista com o mesmo nome utilizado anteriormente
-    When clico em salvar a lista
     Then será possível adicionar o item 
 Scenario: Ao atualizar a quantidade do item, a nova quantidade total atualizada deste item não deve ultrapassar de 1000 unidades
 
 Scenario: O usuário deve poder marcar um item como concluído
-    When dou um nome para minha lista
-    When cadastro um novo item na lista 
-    And  seleciono a quantidade desse item
-    When clico em salvar o item
-    When clico em salvar a lista
+    When realizo o cadastro de uma nova lista
+    When salvo a lista criada
     Then devo conseguir marcar um intem como concluido
-    Then o item deve ser 'riscado ao meio'
+    Then o item deve ser marcado
 Scenario: O usuário pode finalizar a lista de compras. O status da lista não pode ser alterado após ter sido finalizada
     When dou um nome para minha lista
     When cadastro um novo item na lista 
