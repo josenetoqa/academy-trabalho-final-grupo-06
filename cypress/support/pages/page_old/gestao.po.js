@@ -14,5 +14,6 @@ class Gestao{
     visit(){
         cy.visit('/')
     }
+    
 }
 export const gestao = new Gestao()

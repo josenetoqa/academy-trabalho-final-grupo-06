@@ -4,13 +4,10 @@ class Login {
     btnregistra = '.sc-crXcEl'
     emaillogin = 'input[name=email]'
     senhalogin = 'input[name=password]'
-
-    // lista de compras 
-    btnadditen = '.sc-kLLXSd'
-    btnsalvar = '.sc-ftvSup'
     erroinfoincorreta = '.sc-papXJ'
     boxerro = '.go3958317564'
     emailincorreto = '.sc-papXJ'
+    
     visit(){
         cy.visit('/')
     }
