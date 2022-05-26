@@ -20,21 +20,3 @@ When('clico em Entrar', () => {
 Then('tenho acesso ao sistema', () => {
 	return true;
 });
-
-
-When('clico em Entrar', () => {
-	return true;
-});
-
-And('preencho o campo senha com a senha incorreta', () => {
-	return true;
-});
-
-
-Then('Then visualizo a mensagem "E-mail ou senha incorretos.', () => {
-	return true;
-});
-
-And('preencho o campo senha com uma senha qualquer', () => {
-	return true;
-});
