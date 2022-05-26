@@ -1,4 +1,4 @@
-class Login {
+class Login{
 
     botãoEntrar = '.sc-ftvSup'
     emailLogin = 'input[name=email]'
@@ -17,7 +17,7 @@ class Login {
         cy.get(this.botãoEntrar).click()
 
 
-        
 
 }}
-export const login = new Login(); 
+
+export const pagelogin = new Login(); 

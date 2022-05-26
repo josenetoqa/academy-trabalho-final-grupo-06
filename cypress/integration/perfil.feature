@@ -11,14 +11,14 @@ Feature: Atualizar Usuario
             When atualizo as informações de nome para um nome valido
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucessoo
+            And a operação é concluida com sucesso
 
         @ignore
         Scenario: Atualizar Email de um usuário com sucesso
             When atualizo as informações de email para um email valido
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucessoo
+            And a operação é concluida com sucesso
 
         @ignore
         Scenario: Atualizar Nome e Email de um usuário com sucesso
@@ -26,7 +26,7 @@ Feature: Atualizar Usuario
             And atualizo as informações de email para um email valido
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucessoo
+            And a operação é concluida com sucesso
 
         @ignore
         Scenario: Atualizar Email para um já em uso
@@ -47,14 +47,14 @@ Feature: Atualizar Usuario
             When  atualizo as informações de nome para um nome =4 caracteres
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucessoo
+            And a operação é concluida com sucesso
 
         @ignore
         Scenario: Atualizar Nome igual a 100 caracteres
             When atualizo as informações de nome para um nome =100 caracteres
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucessoo
+            And a operação é concluida com sucesso
 
         @ignore
         Scenario: Atualizar Nome maior que 100 caracteres
@@ -68,7 +68,7 @@ Feature: Atualizar Usuario
             When atualizo as informações de email para um email =60 caracteres
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucessoo
+            And a operação é concluida com sucesso
    
         @ignore
         Scenario: Atualizar Email maior que 60 caracteres
@@ -112,3 +112,4 @@ Feature: Atualizar Usuario
             Then visualizo a mensagem de erro
             And não é possivel concluir a operação
 
+        
