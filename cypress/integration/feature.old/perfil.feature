@@ -63,6 +63,7 @@ Feature: Atualizar Usuario
             And confirmo a operação
             Then visualizo a mensagem de erro
             And não é possivel concluir a operação
+            
 
         #@ignore
         Scenario: Atualizar Email igual a 60 caracteres
