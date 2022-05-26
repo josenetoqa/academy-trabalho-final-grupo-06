@@ -8,8 +8,8 @@ class Login {
     boxerro = '.go3958317564'
     emailincorreto = '.sc-papXJ'
     
-    visit(){
-        cy.visit('https://academy-lembra-compras.herokuapp.com/login')
+    visitar(){
+        cy.visit("https://academy-lembra-compras.herokuapp.com/login");
     }
     loginemail(email){
         cy.get(this.emaillogin).type(email)    
@@ -36,4 +36,4 @@ class Login {
         cy.get(this.boxerro).should('be.visible')
 
 }}
-export const login = new Login(); 
+export var login = new Login(); 

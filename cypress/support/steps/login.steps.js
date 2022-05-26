@@ -1,8 +1,8 @@
 import {login} from "../pages/login.po"
 
-Given('acessei a pagina', () => {
-	visit();
-});
+Given("acessei a pagina inicial",()=>{
+    login.visitar();
+})
 
 When('preencho o campo e-mail com um e-mail existente', () => {
 	return true;

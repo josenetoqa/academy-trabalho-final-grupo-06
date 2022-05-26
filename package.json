@@ -7,10 +7,13 @@
     "cy:open": "cypress open",
     "test": "cypress run"
   },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/plugins"
+  },
   "author": "Grupo 06",
   "license": "MIT",
   "devDependencies": {
     "cypress": "9.6.1",
-    "cypress-cucumber-preprocessor": "4.3.1"
+    "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }
