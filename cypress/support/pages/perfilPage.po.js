@@ -1,4 +1,4 @@
-class Login{
+class newLogin{
 
     //elementos
     botãoEntrar = '.sc-ftvSup'
@@ -6,9 +6,10 @@ class Login{
     senhaLogin = 'input[name=password]'
     
     //Ações 
-    telaLogin(){
+    Login(){
         cy.visit('https://academy-lembra-compras.herokuapp.com/');
     }
+
     preencherEmail(email){
         cy.get(this.emailLogin).type(email);    
     }
@@ -22,4 +23,4 @@ class Login{
 
 }}
 
-export default new Login(); 
+export default new newLogin(); 

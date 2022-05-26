@@ -4,7 +4,7 @@ Feature: Atualizar Usuario
     Para manter meus dados atualizados no sistema.
 
     Background: Acessar a tela de usuario para alteração de dados
-     Given acessei a tela de perfil
+        Given acessei a tela de perfil
 
         @ignore
         Scenario: Atualizar Nome de um usuário com sucesso

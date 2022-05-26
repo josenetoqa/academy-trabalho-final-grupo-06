@@ -1,4 +1,4 @@
-import Login from '..suport/pages/perfilPage.po';
+import newLogin from '..support/pages/perfilPage.po'
 
 Given("acessei a tela de perfil", () => {
   
@@ -8,4 +8,4 @@ Given("acessei a tela de perfil", () => {
    
 
   }
-)
+);
