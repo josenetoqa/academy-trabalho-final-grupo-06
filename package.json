@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "Trabalho final do curso de teste de software da Raro academy feito pelo grupo 06",
   "main": "index.js",
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps"
+  },
   "scripts": {
     "cy:open": "cypress open",
     "test": "cypress run"
   },
   "author": "Grupo 06",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "cypress": "^9.6.1",
-    "cypress-cucumber-preprocessor": "4.3.1"
+    "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }
