@@ -1,5 +1,4 @@
 /// <reference types="cypress" />
-
 const cucumber = require('cypress-cucumber-preprocessor').default
 
 // ***********************************************************
