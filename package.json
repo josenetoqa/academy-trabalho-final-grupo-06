@@ -1,16 +1,20 @@
 {
-  "name": "academy-trabalho-final-grupo-06",
+  "name": "atividade6-academy-jose-neto",
   "version": "1.0.0",
-  "description": "Trabalho final do curso de teste de software da Raro academy feito pelo grupo 06",
+  "description": "Atividade do curso da raro academy",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "cypress open"
   },
-  "author": "Grupo 06",
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps"
+},
+  "author": "José Neto",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "9.6.1",
+    "@faker-js/faker": "^6.3.1",
+    "cypress": "^9.6.0",
     "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }
