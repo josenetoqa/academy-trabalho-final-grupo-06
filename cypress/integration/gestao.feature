@@ -5,11 +5,10 @@ Feature: Gestão de lista de compras
 
 Background: Acesso e login na aplicacao
     Given acessei a pagina da aplicacao
-    Given que fiz o login na plataforma 
-    And realizo acesso a plataforma
+    Given que fiz o login na plataforma
     
 Scenario: Apenas usuarios logados podem criar uma lista
-
+@focus 
 Scenario: So deve ser possivel possuir uma lista ativa por vez
     When realizo o cadastro de uma nova lista 
     Then salvo a lista criada
