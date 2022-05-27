@@ -7,33 +7,58 @@ class Login {
     erroinfoincorreta = '.sc-papXJ'
     boxerro = '.go3958317564'
     emailincorreto = '.sc-papXJ'
+    sair = '.sc-hHLeRK'
+    
     
     visitar(){
         cy.visit("https://academy-lembra-compras.herokuapp.com/login");
     }
-    loginemail(email){
+    loginEmail(email){
         cy.get(this.emaillogin).type(email)    
     }
-    loginsenha(senha){
+    loginSenha(senha){
         cy.get(this.senhalogin).type(senha)
     }
     entrar(){
         cy.get(this.btnentrar).click()
     }
-    emailnaoinserido(){
-        cy.get('.davdmO').should('be.visible')
-        cy.contains('Informe seu e-mail')
+
+    preencherFormularioELogar(email, senha) {
+        this.loginEmail(email);
+        this.loginSenha(senha);
+        this.entrar();
     }
-    senhanaoinserida(){
-        cy.contains('Informe sua senha')
+
+    preencherSemEmail(senha) {
+        this.loginSenha(senha);
+        this.entrar();
     }
-    emailinvalido(){
-        cy.get(this.emailincorreto).should('have.text', 'Formato de e-mail inválido.')
+
+    preencherSemSenha(email) {
+        this.loginEmail(email);
+        this.entrar();
+    }
+    
+
+    logou(){
+        cy.contains("Lembra Compras")
+    }
+
+    deslogar(){
+        cy.get(this.menu).click();
+        
+        cy.contains("Sair").click();
+
 
     }
-    mensageminvalido(){
-        cy.get(this.erroinfoincorreta).should('have.text', 'E-mail ou senha incorretos.')
-        cy.get(this.boxerro).should('be.visible')
 
-}}
+    erroLogin(mensagemErro){
+        cy.contains(mensagemErro).wait(2000).should("be.visible");
+
+    };
+
+
+    
+
+}
 export var login = new Login(); 

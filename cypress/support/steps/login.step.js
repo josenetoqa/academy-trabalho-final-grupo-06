@@ -1,23 +1,34 @@
 import {login} from "../pages/login.po"
 
 
-Given("acessei a pagina",()=>{
+
+
+Given("acesso a pagina de Login",()=>{
     login.visitar();
 })
 
-When('preencho o campo e-mail com um e-mail existente', () => {
-	return true;
+When("informo os dados", (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    login.preencherFormularioELogar(dadosTabela.email, dadosTabela.senha);
 });
 
-And('preencho o campo senha com a senha correta', () => {
-	return true;
+When("informo os dados sem email", (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    login.preencherSemEmail(dadosTabela.senha);
 });
 
-When('clico em Entrar', () => {
-	return true;
+When("informo os dados sem senha", (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    login.preencherSemSenha(dadosTabela.email);
 });
+
 
 
 Then('tenho acesso ao sistema', () => {
-	return true;
+	login.logou();
+    login.deslogar();
+});
+
+Then("visualizo a mensagem de erro {string}", (mensagemErro) => {
+    login.erroLogin(mensagemErro);
 });
