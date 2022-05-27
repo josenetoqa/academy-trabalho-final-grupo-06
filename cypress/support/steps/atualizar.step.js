@@ -1,4 +1,4 @@
-import { gestao } from "../pages/AtualizarCadastro.po";
+import { gestao } from "../pages/gestao.po";
 
 Given(/^acessei a pagina da aplicacao$/, () => {
 	 gestao.visit()
