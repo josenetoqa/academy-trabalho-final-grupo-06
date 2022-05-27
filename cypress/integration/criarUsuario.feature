@@ -5,8 +5,8 @@ Feature: Criar usuario
 
     Background: Acessar a tela de cadastrar
         Given acesso a tela principal
-        And acesso a página de cadastrar através da opção Registre-se
-
+        Given realizo o cadastro de um novo usuario
+@focus 
         Scenario: Registra um novo usuário
             When informo um nome válido
             | nome | Jujuba Princesa|

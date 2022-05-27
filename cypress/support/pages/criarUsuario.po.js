@@ -10,7 +10,7 @@ class CriarPage{
     }
 
     registrerSe(){
-        cy.get('.sc-ftvSup').click();
+        cy.get(this.btnregistrarse).click();
     }
  
     nome(nome){

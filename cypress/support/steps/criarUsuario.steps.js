@@ -4,8 +4,8 @@ Given(/^acesso a tela principal$/, () => {
 	criarPage.visita()
 });
 
-(/^acesso a página de cadastrar através da opção Registre-se$/, () => {
-	return true;
+Given(/^realizo o cadastro de um novo usuario$/, () => {
+	criarPage.registrerSe()
 });
 
 When(/^informo um nome válido$/, () => {
