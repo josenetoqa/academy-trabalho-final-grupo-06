@@ -1,6 +1,7 @@
 import {login} from "../pages/login.po"
 
-Given("acessei a pagina inicial",()=>{
+
+Given("acessei a pagina",()=>{
     login.visitar();
 })
 
