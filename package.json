@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Trabalho final do curso de teste de software da Raro academy feito pelo grupo 06",
   "main": "index.js",
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  },
   "scripts": {
     "cy:open": "cypress open",
     "test": "cypress run"
