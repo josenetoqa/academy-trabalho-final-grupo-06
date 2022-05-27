@@ -12,7 +12,7 @@ class newLogin{
     }
     preencherEmail(email){
         cy.get(this.emailLogin).clear()
-        cy.get(this.emailLogin).type("ganso@gmail.com");    
+        cy.get(this.emailLogin).type("guilherme@raro.com");    
     }
     preencherSenha(senha){
         cy.get(this.senhaLogin).clear()
@@ -23,7 +23,7 @@ class newLogin{
 
 }}
 
-//acessar tela de perfil
+//Acessar tela de perfil
 class acessPerfil{
 
     //elementos
@@ -39,6 +39,37 @@ class acessPerfil{
 
 }}
 
+//Alterar dados de usuario
+class alterarDados{
+
+    //elementos
+    campoNome = ':nth-child(2) > .sc-gSAPjG'
+    campoEmail = ':nth-child(3) > .sc-gSAPjG'
+    buttonConfirmar = '.jmKUXo'
+
+
+    //Ações     
+      
+    preencherNome(){
+        cy.get(this.campoNome).clear()
+        cy.get(this.campoNome).type("Paulo Henrique Ganso");    
+    }
+
+    preencherEmail(){
+        cy.get(this.campoEmail).type(); 
+    }
+
+    confirmarAlterações(){
+        cy.get(this.buttonConfirmar).click(); 
+    }
+    
+    clicarEnter(){
+        cy.type({enter});
+    }
+
+}
+
 
 export var login = new newLogin();
 export var Perfil = new acessPerfil();
+export var dados = new alterarDados();

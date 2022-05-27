@@ -1,4 +1,4 @@
-Feature: Atualizar Usuario
+  Feature: Atualizar Usuario
     Como um adminstrador qualquer
     Desejo poder atualizar as informações de um usuário
     Para ter os dados atualizadas
