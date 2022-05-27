@@ -46,30 +46,42 @@ class alterarDados{
     campoNome = ':nth-child(2) > .sc-gSAPjG'
     campoEmail = ':nth-child(3) > .sc-gSAPjG'
     buttonConfirmar = '.jmKUXo'
+    
 
 
     //Ações     
       
     preencherNome(){
-        cy.get(this.campoNome).clear()
-        cy.get(this.campoNome).type("Paulo Henrique Ganso");    
+        cy.get(this.campoNome).clear().type("Paulo Henrique Ganso");    
     }
 
     preencherEmail(){
-        cy.get(this.campoEmail).type(); 
+        cy.get(this.campoEmail).type("guilhermesantos@gmail.com"); 
     }
 
     confirmarAlterações(){
-        cy.get(this.buttonConfirmar).click(); 
+        cy.get(this.buttonConfirmar).click();
+        cy.contains("button", "Confirmar").should("be.visible");
+       
     }
+       
+}
+
+//Mensagens do Sistema
+class mensagensSisten{
+
+    //elementos
     
-    clicarEnter(){
-        cy.type({enter});
-    }
+
+    //Ações     
+      
+    
 
 }
 
 
+
 export var login = new newLogin();
-export var Perfil = new acessPerfil();
+export var perfil = new acessPerfil();
 export var dados = new alterarDados();
+export var mens = new mensagensSisten();
