@@ -6,10 +6,9 @@ class newLogin{
     senhaLogin = 'input[name=password]'
     
     //Ações 
-    Login(){
+    telaLogin(){
         cy.visit("https://academy-lembra-compras.herokuapp.com/");
     }
-
     preencherEmail(email){
         cy.get(this.emailLogin).type(email);    
     }
@@ -23,4 +22,4 @@ class newLogin{
 
 }}
 
-export var login = new newLogin(); 
+export var login = new newLogin();

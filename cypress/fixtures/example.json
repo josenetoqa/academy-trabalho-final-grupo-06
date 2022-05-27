@@ -1,5 +1,58 @@
-{
-  "name": "Using fixtures to represent data",
-  "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
-}
+[
+  {
+    "id": "f0e4c9e5-7f3e-4893-aa90-7bcccfe63906",
+    "name": "Guilherme Araujo",
+    "email": "guilhermeararujo@raro.com.br",
+    "updatedAt": "2022-05-12T12:30:28.198Z",
+    "createdAt": "2022-05-12T12:30:28.198Z"
+  },
+
+  {
+    "id": "a43a7438-b429-4a64-afd3-059a4037b7bf",
+    "name": "Guilherme Santos",
+    "email": "guilhermesferreiras@raro.com.br",
+    "updatedAt": "2022-05-12T12:32:26.826Z",
+    "createdAt": "2022-05-12T12:32:26.826Z"
+  },
+
+  {
+    "id": "eb3d00b7-2615-4b99-ae20-97235c7a770e",
+    "name": "Ganso ",
+    "email": "ganso@raro.com.br",
+    "updatedAt": "2022-05-12T12:37:01.079Z",
+    "createdAt": "2022-05-12T12:37:01.079Z"
+  },
+
+  {
+    "id": "d0cb500a-54ed-483d-8dfb-49a1dfb1b4a3",
+    "name": "Ganso araujo ",
+    "email": "gansoaraujo@raro.com.br",
+    "updatedAt": "2022-05-12T12:37:34.034Z",
+    "createdAt": "2022-05-12T12:37:34.034Z"
+  },
+
+  {
+    "id": "5348945d-554c-494e-b45d-3036eafd028a",
+    "name": "Ganso Santos ",
+    "email": "gansoasantos@raro.com.br",
+    "updatedAt": "2022-05-12T12:38:12.954Z",
+    "createdAt": "2022-05-12T12:38:12.954Z"
+  },
+
+  {
+    "id": "71cbe932-39a5-4c6b-aef5-66483b98b9a1",
+    "name": "Guih ",
+    "email": "guih@raro.com.br",
+    "updatedAt": "2022-05-12T12:39:01.529Z",
+    "createdAt": "2022-05-12T12:39:01.529Z"
+  },
+
+  {
+    "id": "446fc63d-a98e-4a1a-a226-1d42c1aa1dad",
+    "name": "Guih Santos ",
+    "email": "guihsantos@raro.com.br",
+    "updatedAt": "2022-05-12T12:39:26.468Z",
+    "createdAt": "2022-05-12T12:39:26.468Z"
+  }
+]
+

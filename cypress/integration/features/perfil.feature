@@ -1,12 +1,12 @@
 Feature: Atualizar Usuario
-    Como um usuário comum cadastrado no sistema
-    Desejo atualizar minhas informações básicas
-    Para manter meus dados atualizados no sistema.
+    Como um adminstrador qualquer
+    Desejo poder atualizar as informações de um usuário
+    Para ter os dados atualizadas
 
-    Background: Acessar a tela de usuario para alteração de dados
+    Background: Acessa a tela de usuario para alteração de dados
         Given acessei a tela de perfil
-
-        @ignore
+        
+        #@ignore
         Scenario: Atualizar Nome de um usuário com sucesso
             When atualizo as informações de nome para um nome valido
             And confirmo a operação
@@ -111,5 +111,3 @@ Feature: Atualizar Usuario
             And confirmo a operação
             Then visualizo a mensagem de erro
             And não é possivel concluir a operação
-
-        
