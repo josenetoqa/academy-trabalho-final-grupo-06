@@ -5,7 +5,6 @@ Feature: Gestão de lista de compras
 
 Background: Acesso e login na aplicacao
     Given acessei a pagina da aplicacao
-    Given que fiz o login na plataforma
     
 Scenario: Apenas usuarios logados podem criar uma lista
 @focus 

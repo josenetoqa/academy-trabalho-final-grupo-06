@@ -32,10 +32,20 @@ class Gestao{
     entrar(){
         cy.get(this.btnentrar).click()
     }
-
+    inputdescricao(desc){
+        cy.get(this.inputdescricao).type(desc)
+    }
+    inputnameitem(item){
+        cy.get(this.inputnameitem).type(item)
+    }
+    inputquantidade(quantidade){
+        cy.get(this.inputquantidade).type(quantidade)
+    }
+    btnsalvar(){
+        cy.get(this.btnsalvar).click()
+    }
     visit(){
         cy.visit('/')
     }
-    
 }
 export const gestao = new Gestao()
