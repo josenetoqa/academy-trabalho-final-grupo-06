@@ -6,6 +6,7 @@ Feature: Criar usuario
     Background: Acessar a tela de cadastrar
         Given acesso a tela principal
         Given realizo o cadastro de um novo usuario
+<<<<<<< HEAD
         
         Scenario: Registrar um novo usuário
             When informo os dados necessarios para registro de um novo usuario
@@ -14,6 +15,21 @@ Feature: Criar usuario
             | senha          | JujubaPrincesa      |
             | confirmarSenha | JujubaPrincesa      |
             Then será permitido acesso ao sistema
+=======
+@focus 
+        Scenario: Registra um novo usuário
+            When informo um nome válido
+            | nome | Jujuba Princesa|
+            And informo um email válido
+            | email | jujuba@princesa.com |
+            And Informo uma senha válida
+            | senha | JujubaPrincesa |
+            And Confirmo a senha digitada acima
+            | senha | JujubaPrincesa |
+            And confirmo o formulário através do botão Registrar
+            Then visualizo a mensagem de sucesso
+            | mensagem | Usuário criado com sucesso! |
+>>>>>>> 3c2dcafe357cc1ccfaf096734e436538bc31d3f5
 
         Scenario: Registrar um novo usuário com email já existente
             When informo os dados necessarios para registro de um novo usuario

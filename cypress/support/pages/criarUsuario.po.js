@@ -9,8 +9,13 @@ class CriarUsuario{
         cy.visit ('/')
     }
 
+<<<<<<< HEAD
     registrarSe(){
         cy.get('.sc-ftvSup').click();
+=======
+    registrerSe(){
+        cy.get(this.btnregistrarse).click();
+>>>>>>> 3c2dcafe357cc1ccfaf096734e436538bc31d3f5
     }
  
     nome(nome){
