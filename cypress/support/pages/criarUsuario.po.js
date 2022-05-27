@@ -1,4 +1,4 @@
-class CriarPage{
+class CriarUsuario{
     inputNome = "#name"
     inputEmail = "#email"
     inputSenha = "#senha"
@@ -9,7 +9,7 @@ class CriarPage{
         cy.visit ('/')
     }
 
-    registrerSe(){
+    registrarSe(){
         cy.get('.sc-ftvSup').click();
     }
  
@@ -57,4 +57,4 @@ class CriarPage{
     }
 }
 
-export var criarPage = new CriarPage();
+export var criarUsuario = new CriarUsuario();
