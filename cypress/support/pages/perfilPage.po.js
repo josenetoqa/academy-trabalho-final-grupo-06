@@ -16,9 +16,9 @@ class acessPerfil{
     botãoPerfil = ":nth-child(3) > .sc-crXcEl > .sc-hHLeRK" // Botão Perfil em "Opções"
 
     // Tela Perfil
-
-    campoNome = ':nth-child(2) > .sc-gSAPjG' // Campo Nome " Tela Perfil"
-    campoEmail = ':nth-child(3) > .sc-gSAPjG' // Campo Email " Tela Perfil"
+   
+    campoNome = 'input[name=name]' // Campo Nome " Tela Perfil"
+    campoEmail = 'input[name=email]' // Campo Email " Tela Perfil"
     buttonConfirmar = '.jmKUXo' // Botão Confirmar " Tela Perfil"
     menssagemSucessoAtualizar = '.go3958317564' // Mensagem de confirmação
     
@@ -39,10 +39,12 @@ class acessPerfil{
     acessarPerfil(){
         cy.get(this.botãoOpções).click(); // Botão Perfil em Opções "Tela principal"
         cy.get(this.botãoPerfil).click(); // Botão Perfil em Perfil em Opções na "Tela principal" 
+        cy.wait(2000)
     }
 
     limparNome(){
         cy.get(this.campoNome).clear(); // Limpar campo Nome "Tela perfil"
+        cy.wait(2000)
     }
 
     limparEmail(){
@@ -50,7 +52,7 @@ class acessPerfil{
     }
     
     preencherNome(){
-        cy.get(this.campoNome).type("Guilherme Araujo dos santos"); // Preencher campo Nome "Tela perfil"
+        cy.get(this.campoNome).type("Guilherme Santos"); // Preencher campo Nome "Tela perfil"
     }
     
     preencherEmail(){
