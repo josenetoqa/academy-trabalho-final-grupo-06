@@ -1,25 +1,90 @@
-class Login {
+//Fazer Login
+class newLogin{
 
+    //elementos
     botãoEntrar = '.sc-ftvSup'
     emailLogin = 'input[name=email]'
     senhaLogin = 'input[name=password]'
-    baseUrl = 'https://academy-lembra-compras.herokuapp.com/'
-
+       
+    //Ações 
     telaLogin(){
-        cy.visit(this.baseUrl)
+        cy.visit("https://academy-lembra-compras.herokuapp.com/");
     }
-    loginEmail(email){
-        cy.get(this.emailLogin).type(email)    
+    preencherEmail(email){
+        cy.get(this.emailLogin).clear()
+        cy.get(this.emailLogin).type("guilherme@raro.com");    
     }
-    loginSenha(senha){
-        cy.get(this.senhaLogin).type(senha)
+    preencherSenha(senha){
+        cy.get(this.senhaLogin).clear()
+        cy.get(this.senhaLogin).type("12345678");
     }
-    entrar(){
-        cy.get(this.botãoEntrar).click()
-
-
-
-        
+    clicarEntrar(){
+        cy.get(this.botãoEntrar).click();
 
 }}
-export const Login = new Login(); 
+
+//Acessar tela de perfil
+class acessPerfil{
+
+    //elementos
+    botãoOpções = '.sc-bjUoiL'
+    botãoPerfil = ":nth-child(3) > .sc-crXcEl > .sc-hHLeRK"
+
+    //Ações     
+    clicarOpções(){
+        cy.get(this.botãoOpções).click();
+    } 
+    clicarPerfil(){
+        cy.get(this.botãoPerfil).click();    
+
+}}
+
+//Alterar dados de usuario
+class alterarDados{
+
+    //elementos
+    campoNome = ':nth-child(2) > .sc-gSAPjG'
+    campoEmail = ':nth-child(3) > .sc-gSAPjG'
+    buttonConfirmar = '.jmKUXo'
+    
+
+
+    //Ações     
+      
+    preencherNome(){
+        cy.get(this.campoNome).clear().type("Guilherme Araujo dos santos");    
+    }
+
+    preencherEmail(){
+        cy.get(this.campoEmail).type("guilhermesantos@gmail.com"); 
+    }
+
+    confirmarAlterações(){
+        cy.get(this.buttonConfirmar).click();
+        cy.contains("button", "Confirmar").should("be.visible");
+        cy.get(".sc-jdAMXn.iMjKmA").click();
+       
+    }
+     
+}
+
+//Mensagens do Sistema
+class menssagensSisten{
+
+    //elementos
+    menssagemSucessoAtualizar = '.go3958317564'
+
+    //Ações    
+    informaçõesAtualizadas(){ 
+    cy.get(this.menssagemSucessoAtualizar).should("be.visible");
+    
+     }
+   
+}
+
+
+
+export var login = new newLogin();
+export var perfil = new acessPerfil();
+export var dados = new alterarDados();
+export var mens = new menssagensSisten();
