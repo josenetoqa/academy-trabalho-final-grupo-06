@@ -1,4 +1,4 @@
-import {login} from "../pages/login.po"
+import {login} from "../pages/loginPage.po"
 
 
 
