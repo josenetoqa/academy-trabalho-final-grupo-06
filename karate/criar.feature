@@ -1,55 +1,87 @@
-Feature: Criar usuário
-    Como uma pessoa qualquer
-    Desejo me registrar no sistema
-    Para ter acesso as funcionalidades de lista de compras
+Feature: Criar usuario
+Como uma pessoa qualquer
+Desejo me registrar no sistema
+Para ter acesso as funcionalidades de lista de compras
 
-    Background: Base url
-        Given url "https://lista-compras-api.herokuapp.com/api/v1"
-        And path "users"
-        * def userName = "Amanda Rodrigues"
-        * def userNameUpdate = "Amanda Rodrigues"
-        * def payload = {name: "Amanda Rodrigues", email: "aar.amanda@gmail.com"}
-        
-    Scenario: Criar usuário com sucesso
-        * def tequila = Date.now() + "@qualquer.com"
-        And request { name: "socorro", email: "#(tequila)"}
-        When method post 
-        Then status 201
-        And match response contains { name: "socorro", email: "#(response.email)"}
-        
+Background: Acessar a tela de cadastrar de um novo usuario
+    Given acesso a tela principal
 
-    Scenario: Criar usuário sem email não deve ser possível
-        And request { }
-        When method post
-        Then status 400
+    Scenario: Registrar um novo usuário
+        When informo os dados necessarios para registro de um novo usuario
+        | nome           | Juba Princesa    |
+        | email          | jujba11@princesa.com |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then será permitido acesso ao sistema
 
-    Scenario: Não deve ser possível criar usuário sem nome
-        And request { email: "#payload.nome" }
-        When method post
-        Then status 400
-    
-    Scenario: Não deve ser possível criar usuário sem email
-        And request { email: "#(payload.email)" }
-        When method post
-        Then status 400
+    Scenario: Registrar um novo usuário com email já existente
+        When informo os dados necessarios para registro de um novo usuario
+        | nome           | Theo Pestinha       |
+        | email          | jujba@princesa.com |
+        | senha          | Theo1234            |
+        | confirmarSenha | Theo1234            |
+        Then visualizo a mensagem de erro
 
-    Scenario: Não deve ser possível criar usuário com email inválido
-        And request { name: "Amanda Rodrigues", email: "aar.amandaemail.com" }
-        When method post
-        Then status 400 
+    Scenario: Registrar um novo usuário sem o nome
+        When informo os dados necessarios para registro de um novo usuario sem nome
+        | email          | jujuba@princesa.com |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro sem nome
 
-    Scenario: Não deve ser possível criar usuário com email já utilizado   
-        And request {name: "Amanda", email:"aar.amanda@email.com"}
-        When method post
-        Then status 422
-        And match response == { error: "User already exists." }
+    Scenario: Registrar um novo usuário sem o email
+        When informo os dados necessarios para registro de um novo usuario sem email
+        | nome           | Jujuba Princesa     |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro sem email
 
-    Scenario: Não deve ser possível criar nome com mais de 100 caracteres
-        And request { name: "acordapedrinhoquehojetemcapeonatovemjogarcomigovocevaiverqueeuteesculachonaoseimaisparaondeirjaqueano", email: "abcde@email.com"}
-        When method post
-        Then status 400
+    Scenario: Registrar um novo usuário sem o nome e email
+        When informo os dados necessarios para registro de um novo usuario sem o nome e email
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro sem o nome e email
 
-    Scenario: Não deve ser possível criar email com mais de 60 caracteres
-        And request { name: "Amanda", email: "murphydizquesealgopuderdarerradodaraemaisvaidarmui@email.com"}
-        When method post
-        Then status 400
+    Scenario: Registrar um novo usuário com email sem o @
+        When informo os dados necessarios para registro de um novo usuario
+        | nome           | Jujuba Princesa     |
+        | email          | jujubaprincesa.com  |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro email invalido
+
+    Scenario: Registrar um novo usuário com email sem o .com
+        When informo os dados necessarios para registro de um novo usuario
+        | nome           | Jujuba Princesa     |
+        | email          | jujuba@princesa     |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro email invalido
+
+    Scenario: Registrar um usuário com mais de 100 caracteres no nome
+        When informo os dados necessarios para registro de um novo usuario
+        | nome | JujubaPrincesaJujubaPrincesaJujubaPrincesaJujubaPrincesaJujubaPrincesaJujubaPrincesaJujubaPrincesaJuj |
+        | email          | jujuba@princesa.com    |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro de tamanho invalido
+
+    Scenario: Registrar um usuário com mais de 60 caracteres no email
+        When informo os dados necessarios para registro de um novo usuario
+        | nome           | Jujuba Princesa     |
+        | email | teoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteoteo@princesa.com |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |
+        Then visualizo a mensagem de erro email maior que o permitido
+
+    Scenario: Registrar um usuário com menos de 4 caracteres no nome
+        When informo os dados necessarios para registro de um novo usuario
+        | nome           | Jub                 |
+        | email          | jujuba@princesa.com |
+        | senha          | JujubaPrincesa      |
+        | confirmarSenha | JujubaPrincesa      |           
+        Then visualizo a mensagem de erro de nome invalido
+
+    Scenario: Clicar na opção de "Voltar à página de login "
+        When clico na opção voltar à pagina de login
+        Then volto para a tela principal
