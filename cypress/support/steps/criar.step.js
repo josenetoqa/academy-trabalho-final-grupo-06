@@ -1,3 +1,10 @@
+import {criarPage} from "../pages/criarPage.po";
+Given('acesso a tela principal', () => {
+    criarPage.visitar()
+    criarPage.registreSe()
+});
+
+
 When('informo os dados necessarios para registro de um novo usuario', (tabela) => {
     var dadosTabela = tabela.rowsHash();
     criarPage.preencherFormulario(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
@@ -44,4 +51,13 @@ Then('visualizo a mensagem de erro email maior que o permitido', () => {
 });
 Then('visualizo a mensagem de erro de nome invalido', () => {
     criarPage.erroname()
+});
+
+
+When("clico na opção voltar à pagina de login", () => {
+    criarPage.voltar()
+});
+
+Then("volto para a tela principal", () => {
+
 });
