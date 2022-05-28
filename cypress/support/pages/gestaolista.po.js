@@ -1,20 +1,13 @@
 class Gestao{
-    inputdescricao = 'input[name="description"]'
-    inputnameitem= 'input[name="name"]'
-    inputquantidade = 'input[name="amount"]'
-    btnadicionaritem = '.jXvxPV'
-    btnsalvar ='.ihUbVe'
-    btnadicionarlista = '.cAnVuz'
+    inputdesc= '.sc-bBrHrO > .sc-hAZoDl > .sc-ksZaOG'
+    inputname= ':nth-child(1) > .sc-ksZaOG'
+    inputquant = '.sc-bZkfAO > :nth-child(2) > .sc-ksZaOG'
+    btnadicionaritem = '.sc-kLLXSd'
+    btnadicionarlista = '.sc-ftvSup'
     checkitem = '.dHzcbv'
-    btnfinalizar = '.bRCWwE'
-    btnhistorico = 'a[href="/historico"]'
-    btnlista = 'a[href="/lista"]'
+    btnfinalizar = '.sc-jdAMXn'
     menu='.sc-bjUoiL'
-    
-    
     //Login
-    
-    
     btnentrar = '.sc-ftvSup'
     btnregistra = '.sc-crXcEl'
     emaillogin = 'input[name=email]'
@@ -33,19 +26,26 @@ class Gestao{
         cy.get(this.btnentrar).click()
     }
     inputdescricao(desc){
-        cy.get(this.inputdescricao).type(desc)
+        cy.get(this.inputdesc).type(desc)
     }
     inputnameitem(item){
-        cy.get(this.inputnameitem).type(item)
+        cy.get(this.inputname).type(item)
     }
     inputquantidade(quantidade){
-        cy.get(this.inputquantidade).type(quantidade)
+        cy.get(this.inputquant).type(quantidade)
+    }
+    btnadditem(){
+        cy.get(this.btnadicionaritem).click()
     }
     btnsalvar(){
-        cy.get(this.btnsalvar).click()
+        cy.get(this.btnadicionarlista).click()
+    }
+    btnconfirmar(){
+        cy.get(this.btnfinalizar).click()
     }
     visit(){
         cy.visit('/')
     }
+
 }
 export const gestao = new Gestao()
