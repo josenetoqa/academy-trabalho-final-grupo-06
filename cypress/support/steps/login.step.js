@@ -1,8 +1,5 @@
 import {login} from "../pages/loginPage.po"
 
-
-
-
 Given("acesso a pagina de Login",()=>{
     login.visitar();
 })
@@ -31,4 +28,4 @@ Then('tenho acesso ao sistema', () => {
 
 Then("visualizo a mensagem de erro {string}", (mensagemErro) => {
     login.erroLogin(mensagemErro);
-});
+}); 

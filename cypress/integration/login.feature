@@ -4,23 +4,18 @@ Feature: Login
     Para conseguir utilizar os serviços do Lembra Compras.
 
 Background: Cenario antes do teste
-    Given acesso a pagina de Login
-    
-
+    Given acesso a pagina de Login  
 Scenario: logar no sistema com e-mail existente e senha correta
     When informo os dados
         | email | romerito@raro.com |
         | senha | 123               |
     Then tenho acesso ao sistema
 
-
 Scenario: logar no sistema com e-mail existente e senha incorreta
     When informo os dados
         | email | romerito@raro.com |
         | senha | 12345             |
     Then visualizo a mensagem de erro "E-mail ou senha incorretos."
-
-
 Scenario: logar no sistema com e-mail não existente 
     When informo os dados
         | email | ro@raro.com |
