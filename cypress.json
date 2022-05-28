@@ -1,0 +1,7 @@
+{
+    "baseUrl": "https://academy-lembra-compras.herokuapp.com/",
+    "testFiles": "**/*.feature",
+    "env": {
+        "TAGS":  "not @ignore"
+    }
+}
