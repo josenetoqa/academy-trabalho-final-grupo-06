@@ -9,8 +9,6 @@ class Login {
     emailincorreto = '.sc-papXJ'
     sair = '.sc-hHLeRK'
     
-    
-    
     visitar(){
         cy.visit("https://academy-lembra-compras.herokuapp.com/login");
     }
