@@ -18,9 +18,10 @@ class acessPerfil{
     // Tela Perfil
    
     campoNome = 'input[name=name]' // Campo Nome " Tela Perfil"
-    campoEmail = 'input[name=email]' // Campo Email " Tela Perfil"
+    campoEmail = ':nth-child(3) > .sc-gSAPjG' // Campo Email " Tela Perfil"
     buttonConfirmar = '.jmKUXo' // Botão Confirmar " Tela Perfil"
     menssagemSucessoAtualizar = '.go3958317564' // Mensagem de confirmação
+    buttonSair = ':nth-child(4) > .sc-crXcEl > .sc-hHLeRK' // Botão Sair (logout)
     
 
 
@@ -49,6 +50,7 @@ class acessPerfil{
 
     limparEmail(){
         cy.get(this.campoEmail).clear(); // Limpar campo Email "Tela perfil"  
+        cy.wait(2000)
     }
     
     preencherNome(){
@@ -67,6 +69,12 @@ class acessPerfil{
 
     informaçõesAtualizadas(){ 
         cy.get(this.menssagemSucessoAtualizar).should("be.visible"); // Visualizar mensagem de Sucesso "Tela perfil"
+    }
+
+    logout(){
+        cy.get(this.botãoOpções).click(); // Botão Perfil em Opções "Tela perfil"
+        cy.get(this.buttonSair).click();
+
     }
 }
 

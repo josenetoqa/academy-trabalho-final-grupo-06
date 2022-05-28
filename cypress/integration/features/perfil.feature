@@ -12,20 +12,19 @@
             And confirmo a operação
             Then visualizo a mensagem de sucesso
             
-        @ignore
+        #@ignore
         Scenario: Atualizar Email de um usuário com sucesso
             When atualizo as informações de email para um email valido
             And confirmo a operação
             Then visualizo a mensagem de sucesso
             
 
-        @ignore
+        #@ignore
         Scenario: Atualizar Nome e Email de um usuário com sucesso
-            When atualizo as informações de nome para um nome valido
-            And atualizo as informações de email para um email valido
+            When atualizo as informações de nome e email
             And confirmo a operação
             Then visualizo a mensagem de sucesso
-            And a operação é concluida com sucesso
+            
 
         @ignore
         Scenario: Atualizar Email para um já em uso
