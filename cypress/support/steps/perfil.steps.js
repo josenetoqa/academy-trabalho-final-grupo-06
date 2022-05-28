@@ -1,27 +1,21 @@
-import {login} from "../pages/perfilPage.po"
 import {perfil} from "../pages/perfilPage.po"
-import {dados} from "../pages/perfilPage.po"
-import {mens} from "../pages/perfilPage.po"
 
 
 //Acessar tela de perfil para atualizar informações de usuario
 Given("acessei a tela de perfil", () => {
 
-   //Fazer login
-   login.telaLogin();
-   login.preencherEmail();
-   login.preencherSenha();
-   login.clicarEntrar();
-
-   //Acessar tela de Perfil
-   perfil.clicarOpções();
-   perfil.clicarPerfil();
+   perfil.logar();   
+   perfil.acessarPerfil();
+   
   }
 );  
 
+
+
 When("atualizo as informações de nome para um nome valido", () => {
 
-  dados.preencherNome();
+  perfil.limparNome();
+  perfil.preencherNome();
 
   }
 ); 
@@ -30,12 +24,16 @@ When("atualizo as informações de nome para um nome valido", () => {
 
 When("confirmo a operação", () => {
 
-  dados.confirmarAlterações();
+  perfil.confirmarAlterações();
+
   }
 );
 
+
+
 Then("visualizo a mensagem de sucesso", () => {
   
-  mens.informaçõesAtualizadas();
+  perfil.informaçõesAtualizadas();
+
   }
 );
