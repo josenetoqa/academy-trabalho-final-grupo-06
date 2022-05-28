@@ -1,4 +1,4 @@
-class newUser{
+class CriarPage{
 
     nome = "#name"
     email = "#email"
@@ -7,8 +7,8 @@ class newUser{
     btnregistrese = '.sc-evZas'
     btnregistrar = '.sc-kgUAyh'
 
-    telaPrincipal() {
-        cy.visit("https://academy-lembra-compras.herokuapp.com/");
+    visitar() {
+        cy.visit("/");
     }
 
     registreSe(){
