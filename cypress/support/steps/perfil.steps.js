@@ -6,7 +6,7 @@ import {mens} from "../pages/perfilPage.po"
 
 //Acessar tela de perfil para atualizar informações de usuario
 Given("acessei a tela de perfil", () => {
-  
+
    //Fazer login
    login.telaLogin();
    login.preencherEmail();
@@ -21,13 +21,21 @@ Given("acessei a tela de perfil", () => {
 
 When("atualizo as informações de nome para um nome valido", () => {
 
-   dados.preencherNome();
+  dados.preencherNome();
+
   }
 ); 
+
+
 
 When("confirmo a operação", () => {
 
   dados.confirmarAlterações();
+  }
+);
+
+Then("visualizo a mensagem de sucesso", () => {
   
- }
+  mens.informaçõesAtualizadas();
+  }
 );

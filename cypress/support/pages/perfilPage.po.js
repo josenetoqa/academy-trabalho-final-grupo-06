@@ -35,7 +35,7 @@ class acessPerfil{
         cy.get(this.botãoOpções).click();
     } 
     clicarPerfil(){
-            cy.get(this.botãoPerfil).click();    
+        cy.get(this.botãoPerfil).click();    
 
 }}
 
@@ -52,7 +52,7 @@ class alterarDados{
     //Ações     
       
     preencherNome(){
-        cy.get(this.campoNome).clear().type("Paulo Henrique Ganso");    
+        cy.get(this.campoNome).clear().type("Guilherme Araujo dos santos");    
     }
 
     preencherEmail(){
@@ -62,21 +62,24 @@ class alterarDados{
     confirmarAlterações(){
         cy.get(this.buttonConfirmar).click();
         cy.contains("button", "Confirmar").should("be.visible");
+        cy.get(".sc-jdAMXn.iMjKmA").click();
        
     }
-       
+     
 }
 
 //Mensagens do Sistema
-class mensagensSisten{
+class menssagensSisten{
 
     //elementos
-    
+    menssagemSucessoAtualizar = '.go3958317564'
 
-    //Ações     
-      
+    //Ações    
+    informaçõesAtualizadas(){ 
+    cy.get(this.menssagemSucessoAtualizar).should("be.visible");
     
-
+     }
+   
 }
 
 
@@ -84,4 +87,4 @@ class mensagensSisten{
 export var login = new newLogin();
 export var perfil = new acessPerfil();
 export var dados = new alterarDados();
-export var mens = new mensagensSisten();
+export var mens = new menssagensSisten();
