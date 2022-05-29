@@ -3,19 +3,62 @@ Como um usuário com conta no sistema
 Desejo gerenciar uma lista de compras
 Para registrar os produtos que desejo comprar.
 
+
+
 Background: Base url
     Given url "https://crud-api-academy.herokuapp.com/api/v1"
-    And path "list"
+    Given path "list"
     * def userName = "José Duarte"
     * def userNameUpdate = "José Duarte"
-    * def payload = {email: "jose@duarte.com", senha: "jose@duarte.com"}
+    * def payload = {email: "jose@duarte.com", senha: "123456"}
 
-
+    Scenario: Criar lista de compras com sucesso
+        *call read("hook.feature@login")
+        *def payload = read ("payloadUsuario.json)
+    Given path "list"
+    And header X-JWT-Token = payload.token
+    And request { description: "Supermercado", items: [{ name: "jose duarte", amount: 1}]}
     
+
+
+
+Scenario: A quantidade mínima de um item na lista deve ser de 1 unidade
+    When realizo o cadastro de uma nova lista incluindo um item com o valor menor que 1
+    Then vejo a mensagem de erro insira um valor valido
+    Then deslogo da plataforma
+Scenario: criar lista de compras com quantidade menor que 1 de um determinado item
+    * call read("hook.feature@login")
+    * def payload = read("payloadUsuario.json")
+
+    Given url baseUrl
+    Given path "list"
+    And header X-JWT-Token = payload.token
+    And request { description: "Supermercado", items: [{ name: "Jose duarte", amount: -1}]}
+    When method post
+    Then status 400
+
+
+
+Scenario: A quantidade máxima de um item na lista deve ser de 1000 unidades
+    When realizo o cadastro de uma nova lista incluindo um item com o valor maior que 1000
+    Then vejo a mensagem de erro insira um valor valido
+    Then deslogo da plataforma
+
+Scenario: criar lista de compras com quantidade maior que 1000 de um determinado item
+    * call read("hook.feature@login")
+    * def payload = read("payloadUsuario.json")
+
+    Given url baseUrl
+    Given path "list"
+    And header X-JWT-Token = payload.token
+    And request { description: "Supermarket", items: [{ name: "Avocado", amount: 1001}]}
+    When method post
+    Then status 400
+
+
+
+
     Scenario: So deve ser possivel possuir uma lista ativa por vez
-    And path 
-
-
     When realizo o cadastro de uma nova lista 
     Then salvo a lista criada
     Then não consigo visualizar mais de uma lista
@@ -34,16 +77,6 @@ Background: Base url
     Scenario: Deve ser possível criar uma lista sem descrição, dado que pelo menos um item tenha sido adicionado
     When realizo o cadastro de uma nova lista sem descricao
     Then consegui criar uma nova lista
-    Then deslogo da plataforma
-
-    Scenario: A quantidade mínima de um item na lista deve ser de 1 unidade
-    When realizo o cadastro de uma nova lista incluindo um item com o valor menor que 1
-    Then vejo a mensagem de erro insira um valor valido
-    Then deslogo da plataforma
-
-    Scenario: A quantidade máxima de um item na lista deve ser de 1000 unidades
-    When realizo o cadastro de uma nova lista incluindo um item com o valor maior que 1000
-    Then vejo a mensagem de erro insira um valor valido
     Then deslogo da plataforma
 
     Scenario: Se um item que já existe na lista sofrer uma nova tentativa de ser adicionado utilizando o mesmo nome, a quantidade do item deve ser acrescentada
