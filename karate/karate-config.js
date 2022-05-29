@@ -1,15 +1,10 @@
-@ -1,29 +0,0 @@
 function setup() {
     var config = {
-        baseUrl: "https://https://lista-compras-api.herokuapp.com/api/v1"
+        baseUrl: "https://lista-compras-api.herokuapp.com/api/v1/users"
     }
 
     return config;
 }
 
-function setup() {
-    karate.configure("headers", {
-        secret: "ak109sa1kj-amsasuil1"
-    })
-}
+
 
