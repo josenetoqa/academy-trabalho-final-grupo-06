@@ -61,7 +61,6 @@ class Gestao{
     erromenor(){
         cy.get(this.texterro).should('have.text', 'Informe pelo menos 1 unidade')
     }
-    
     erromaior(){
         cy.get(this.texterro).should('have.text', 'Informe uma quantidade menor ou igual a 1000')
     }
@@ -71,7 +70,5 @@ class Gestao{
     marcar(){
         cy.get('.sc-himrzO').check().should('be.checked')
     }
-   
-
 }
 export const gestao = new Gestao()

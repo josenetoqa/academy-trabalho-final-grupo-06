@@ -45,7 +45,6 @@ When('verifico se os itens da lista possuem apenas nome e quantidade', () => {
 	gestao.verificacaodelista()
 	gestao.btnconcluir()
 });
-
 When('realizo o cadastro de uma nova lista sem descricao', () => {
 	gestao.inputnameitem('dessss')
 	gestao.inputquantidade('10')
@@ -56,7 +55,6 @@ Then('consegui criar uma nova lista', () => {
 	gestao.btnconfirmar()
 	gestao.btnconcluir()
 });
-
 When('realizo o cadastro de uma nova lista incluindo um item com o valor menor que 1', () => {
 	gestao.inputdescricao('desc')
 	gestao.inputnameitem('dessss')
@@ -75,14 +73,12 @@ When('realizo o cadastro de uma nova lista incluindo um item com o valor maior q
 Then('vejo a mensagem de erro insira um valor valido', () => {
 	gestao.erromaior()
 });
-
 When('realizo o cadastro de uma nova lista', () => {
 	gestao.inputdescricao('desc')
 	gestao.inputnameitem('dessss')
 	gestao.inputquantidade('10')
 	gestao.btnadditem()
 });
-
 When('cadastro um novo item na lista com o mesmo nome utilizado anteriormente', () => {
 	gestao.inputnameitem('dessss')
 	gestao.inputquantidade('10')
@@ -94,7 +90,6 @@ Then('a lista foi criada com sucesso', () => {
 	gestao.btnconfirmar()
 	gestao.btnconcluir()
 });
-
 When('cadastro uma nova lista', () => {
 	gestao.inputnameitem('dessss')
 	gestao.inputquantidade('10')
@@ -102,7 +97,6 @@ When('cadastro uma nova lista', () => {
 	gestao.btnsalvar()
 	gestao.btnconfirmar()
 });
-
 Then('devo conseguir marcar um intem como concluido', () => {
 	gestao.btnconcluir()
 	gestao.marcar()
