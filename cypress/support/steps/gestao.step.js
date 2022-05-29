@@ -1,13 +1,80 @@
-import { gestao } from "../pages/gestaolista.po";
+import { gestao } from "../pages/gestaoPage.po";
+import { login } from "../pages/loginPage.po";
 
 Given('acessei a pagina da aplicacao', () => {
 	gestao.visit()
-	gestao.loginemail('josepandia42@gmail.com')
-	gestao.loginsenha('123')
-	gestao.entrar()
-	cy.wait(2000)
+	login.loginEmail('josepandia42@gmail.com')
+	login.loginSenha('123')
+	login.entrar()
+});
+When('realizo o cadastro de uma nova lista', () => {
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.btnsalvar()
+});
+Then('salvo a lista criada', () => {
+	gestao.btnsalvar()
+	cy.wait(1000)
+});
+Then('não consigo visualizar mais de uma lista', () => {
+	gestao.titulo()
+	gestao.btnconfirmar()
+	cy.wait(1000)
+	gestao.btnconfirmar()
+	gestao.btnconcluir()
+});
+Then('deslogo da plataforma', () => {
+	gestao.logoff()
+});
+When('realizo o cadastro de uma lista', () => {
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.btnsalvar()
+});
+When('verifico se as listas sao compostas por uma descrição e por uma lista de itens', () => {
+    gestao.btnconfirmar()
+	gestao.verificacaodecampo()
+	gestao.btnconcluir()
+});
+When('verifico se os itens da lista possuem apenas nome e quantidade', () => {
+    gestao.btnconfirmar()
+	gestao.verificacaodelista()
+	gestao.btnconcluir()
 });
 
+When('realizo o cadastro de uma nova lista sem descricao', () => {
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.btnsalvar()
+});
+Then('consegui criar uma nova lista', () => {
+	gestao.btnconfirmar()
+	gestao.btnconcluir()
+});
+
+When('realizo o cadastro de uma nova lista incluindo um item com o valor menor que 1', () => {
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('-1')
+	gestao.btnadditem()
+});
+Then('vejo a mensagem de erro insira um valor valido', () => {
+	gestao.erromenor()
+});
+When('realizo o cadastro de uma nova lista incluindo um item com o valor maior que 1000', () => {
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('-1')
+	gestao.btnadditem()
+});
+Then('vejo a mensagem de erro insira um valor valido', () => {
+	gestao.erromaior()
+});
 
 When('realizo o cadastro de uma nova lista', () => {
 	gestao.inputdescricao('desc')
@@ -15,89 +82,28 @@ When('realizo o cadastro de uma nova lista', () => {
 	gestao.inputquantidade('10')
 	gestao.btnadditem()
 });
-Then('salvo a lista criada', () => {
+
+When('cadastro um novo item na lista com o mesmo nome utilizado anteriormente', () => {
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
 	gestao.btnsalvar()
-	cy.wait(4000)	
+	
 });
-Then('não consigo visualizar mais de uma lista', () => {
+Then('a lista foi criada com sucesso', () => {
+	gestao.btnconfirmar()
+	gestao.btnconcluir()
+});
+
+When('cadastro uma nova lista', () => {
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.btnsalvar()
 	gestao.btnconfirmar()
 });
 
-
-When('realizo o cadastro de uma nova lista', () => {
-	gestao.inputdescricao('desc1')
-	gestao.inputnameitem('desc10')
-	gestao.inputquantidade('100')
-	gestao.btnadditem()
+Then('devo conseguir marcar um intem como concluido', () => {
+	gestao.btnconcluir()
+	gestao.marcar()
 });
-
-When('verifico se as listas sao compostas por uma descrição e por uma lista de itens', () => {
-	return true;
-});
-
-Then('salvo a nova lista', () => {
-	gestao.btnsalvar()
-	cy.wait(4000)
-});
-
-
-When('realizo o cadastro de uma nova lista', () => {
-	gestao.inputdescricao('desc10')
-	gestao.inputnameitem('desc100')
-	gestao.inputquantidade('1')
-	gestao.btnadditem()
-});
-
-When('verifico se os itens da lista possuem apenas nome e quantidade', () => {
-	return true;
-});
-
-Then('consegui criar uma nova lista', () => {
-	gestao.btnsalvar()
-	cy.wait(4000)
-	gestao.btnconfirmar()
-});
-
-
-When('realizo o cadastro de uma nova lista sem descricao', () => {
-	gestao.inputnameitem('desc100')
-	gestao.inputquantidade('1')
-	gestao.btnadditem()
-});
-
-When('verifico que pelo menos um item foi inserido', () => {
-	return true;
-});
-
-Then('consegui criar uma nova lista', () => {
-	return true;
-});
-
-
-When('realizo o cadastro de uma nova lista', () => {
-	gestao.inputdescricao('desc10')
-});
-
-When('seleciono a quantidade do item com o valor menor que 1', () => {
-	gestao.inputnameitem('desc100')
-	gestao.inputquantidade('0,5')
-	gestao.btnadditem()
-});
-
-Then('vejo a mensagem de erro insira um valor valido', () => {
-	return true;
-});
-
-
-When('realizo o cadastro de uma nova lista', () => {
-	return true;
-});
-
-When('seleciono a quantidade do item com o valor maior que 1000', () => {
-	return true;
-});
-
-Then('vejo a mensagem de erro insira um valor valido', () => {
-	return true;
-});
-

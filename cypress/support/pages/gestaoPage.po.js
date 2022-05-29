@@ -4,27 +4,14 @@ class Gestao{
     inputquant = '.sc-bZkfAO > :nth-child(2) > .sc-ksZaOG'
     btnadicionaritem = '.sc-kLLXSd'
     btnadicionarlista = '.sc-ftvSup'
+    btnfinalizarlista = '.bRCWwE'
     checkitem = '.dHzcbv'
-    btnfinalizar = '.sc-jdAMXn'
+    btnfinalizar = '.sc-jdAMXn > button'
     menu='.sc-bjUoiL'
-    //Login
-    btnentrar = '.sc-ftvSup'
-    btnregistra = '.sc-crXcEl'
-    emaillogin = 'input[name=email]'
-    senhalogin = 'input[name=password]'
-    erroinfoincorreta = '.sc-papXJ'
-    boxerro = '.go3958317564'
-    emailincorreto = '.sc-papXJ'
+    sair='.sc-idiyUo > :nth-child(4)'
+    box ='.go3958317564'
+    texterro = '.sc-papXJ'
 
-    loginemail(email){
-        cy.get(this.emaillogin).type(email)    
-    }
-    loginsenha(senha){
-        cy.get(this.senhalogin).type(senha)
-    }
-    entrar(){
-        cy.get(this.btnentrar).click()
-    }
     inputdescricao(desc){
         cy.get(this.inputdesc).type(desc)
     }
@@ -32,6 +19,7 @@ class Gestao{
         cy.get(this.inputname).type(item)
     }
     inputquantidade(quantidade){
+        cy.get(this.inputquant).clear()
         cy.get(this.inputquant).type(quantidade)
     }
     btnadditem(){
@@ -41,11 +29,49 @@ class Gestao{
         cy.get(this.btnadicionarlista).click()
     }
     btnconfirmar(){
+        cy.get(this.btnfinalizarlista).click({force: true})
+    }
+    btnconcluir(){
         cy.get(this.btnfinalizar).click()
+    }
+    logoff(){
+        cy.get(this.menu).click()
+        cy.get(this.sair).click()
+    }
+    titulo(){
+        cy.get('h4').should('have.text','Adicionar novo item')
     }
     visit(){
         cy.visit('/')
     }
+    verificacaodecampo(){
+        cy.get(':nth-child(1) > .sc-ksZaOG').should('be.visible')
+        cy.get(':nth-child(2) > .sc-ksZaOG').should('be.visible')
+    }
+    verificacaodelista(){
+        cy.get('.kPGdrP').should('be.visible')
+        cy.get('h1').should('be.visible')
+    }
+    listaconcluida() {
+        cy.get(this.box).should('have.text', 'Lista concluída com sucesso!')
+    }
+    listacriada() {
+        cy.get(this.box).should('have.text', 'Lista criada com sucesso!')    
+    }
+    erromenor(){
+        cy.get(this.texterro).should('have.text', 'Informe pelo menos 1 unidade')
+    }
+    
+    erromaior(){
+        cy.get(this.texterro).should('have.text', 'Informe uma quantidade menor ou igual a 1000')
+    }
+    verificarcriacao(texto){
+        cy.get('.sc-gicCDI').should('have.text' , texto)
+    }
+    marcar(){
+        cy.get('.sc-himrzO').check().should('be.checked')
+    }
+   
 
 }
 export const gestao = new Gestao()
