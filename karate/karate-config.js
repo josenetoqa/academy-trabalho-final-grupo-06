@@ -1,3 +1,4 @@
+@ -1,29 +0,0 @@
 function setup() {
     var config = {
         baseUrl: "https://https://lista-compras-api.herokuapp.com/api/v1"

@@ -8,5 +8,3 @@ Feature: Hook
         And path "users"
         And request {name: "#(tequila)", email: "#(pacoca)"}
         When method post 
-
-    
