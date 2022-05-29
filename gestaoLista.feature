@@ -21,7 +21,6 @@ Background: Base url
     
 
 
-
 Scenario: A quantidade mínima de um item na lista deve ser de 1 unidade
     When realizo o cadastro de uma nova lista incluindo um item com o valor menor que 1
     Then vejo a mensagem de erro insira um valor valido
@@ -38,6 +37,8 @@ Scenario: criar lista de compras com quantidade menor que 1 de um determinado it
     Then status 400
 
 
+    
+
 
 Scenario: A quantidade máxima de um item na lista deve ser de 1000 unidades
     When realizo o cadastro de uma nova lista incluindo um item com o valor maior que 1000
@@ -51,9 +52,14 @@ Scenario: criar lista de compras com quantidade maior que 1000 de um determinado
     Given url baseUrl
     Given path "list"
     And header X-JWT-Token = payload.token
-    And request { description: "Supermarket", items: [{ name: "Avocado", amount: 1001}]}
+    And request { description: "Supermercado", items: [{ name: "Jose duarte", amount: 1001}]}
     When method post
     Then status 400
+
+
+
+
+
 
 
 
