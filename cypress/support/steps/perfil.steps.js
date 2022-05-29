@@ -2,13 +2,21 @@ import {perfil} from "../pages/perfilPage.po"
 
 
 
-Given("acessei a tela de perfil", () => {
+Given("efetuei logout do sistema", () => {
 
-   perfil.logar();   
-   perfil.acessarPerfil();
+   perfil.logout();
    
   }
 );  
+
+Given("acessei a tela de perfil", () => {
+
+  perfil.logar();   
+  perfil.acessarPerfil();
+  
+ }
+);  
+
 
 
 //Cenarios
@@ -43,7 +51,32 @@ When("atualizo as informações de nome e email", () => {
 ); 
 
 
+When("atualizo as informações de email para um email já em uso", () => {
+    
+  perfil.limparEmail();
+  perfil.emailUsado();
+
+  }
+); 
+
+When("atualizo as informações de nome para um nome <4 caracteres", () => {
+
+  perfil.limparNome();
+  perfil.nomeM4();
+
+  }
+); 
+
+
+
 //Confirmar Operação
+When("tento confirmar a operação", () => {
+
+  perfil.erroConfirmar();
+
+  }
+);
+
 When("confirmo a operação", () => {
 
   perfil.confirmarAlterações();
@@ -61,3 +94,29 @@ Then("visualizo a mensagem de sucesso", () => {
 
   }
 );
+
+Then("visualizo a mensagem email já em uso", () => {
+  
+  perfil.menssagemErro1();
+
+  }
+);
+
+
+Then("visualizo a mensagem de alerta", () => {
+  
+  perfil.menssagemErro2();
+
+  }
+);
+
+Then("visualizo a mensagem de erro", () => {
+  
+  perfil.menssagemErro3();
+
+  }
+);
+
+
+
+

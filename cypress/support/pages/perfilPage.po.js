@@ -34,46 +34,84 @@ class acessPerfil{
         cy.get(this.senhaLogin).clear() // Limpar campo Senha "Tela Login"
         cy.get(this.senhaLogin).type("12345678"); // Preencher Senha "Tela Login"
         cy.get(this.botãoEntrar).click(); // Clicar no Botão Entrar "Tela Login"
-
+        cy.wait(1500)
     }
   
     acessarPerfil(){
         cy.get(this.botãoOpções).click(); // Botão Perfil em Opções "Tela principal"
         cy.get(this.botãoPerfil).click(); // Botão Perfil em Perfil em Opções na "Tela principal" 
-        cy.wait(2000)
+        cy.wait(1500)
     }
 
     limparNome(){
         cy.get(this.campoNome).clear(); // Limpar campo Nome "Tela perfil"
-        cy.wait(2000)
+        cy.wait(1500)
     }
 
     limparEmail(){
         cy.get(this.campoEmail).clear(); // Limpar campo Email "Tela perfil"  
-        cy.wait(2000)
+        cy.wait(1500)
     }
     
     preencherNome(){
         cy.get(this.campoNome).type("Guilherme Santos"); // Preencher campo Nome "Tela perfil"
     }
-    
-    preencherEmail(){
-        cy.get(this.campoEmail).type("guilhermesantos@gmail.com"); // Preencher campo Email "Tela perfil"
+
+    nomeM4(){
+        cy.get(this.campoNome).type("Gui"); // Preencher campo Nome <4 caracteres "Tela perfil"
     }
     
+    preencherEmail(){
+        cy.get(this.campoEmail).type("guilherme@raro.com"); // Preencher campo Email "Tela perfil"
+    }
+    
+    emailUsado(){
+        cy.get(this.campoEmail).type("guilhermearaujo@raro.com"); // Preencher campo Email já em uso "Tela perfil"
+    }
+
+
     confirmarAlterações(){
         cy.get(this.buttonConfirmar).click(); // Clicar botão Confirmar Alterações "Tela perfil"
         cy.contains("button", "Confirmar").should("be.visible"); // Visualizar botão Confirmar "Tela perfil"
         cy.get(".sc-jdAMXn.iMjKmA").click(); // Clicar botão Confirmar "Tela perfil"
     }
 
-    informaçõesAtualizadas(){ 
-        cy.get(this.menssagemSucessoAtualizar).should("be.visible"); // Visualizar mensagem de Sucesso "Tela perfil"
+    
+    erroConfirmar(){
+        cy.get('.jmKUXo').should('be.visible').click();
+        cy.get(this.buttonConfirmar).click();
+        
     }
 
+
+    informaçõesAtualizadas(){ 
+        cy.wait(500)
+        cy.get(this.menssagemSucessoAtualizar).should("be.visible"); // Visualizar mensagem de Sucesso "Tela perfil"
+    }
+    
+    menssagemErro1(){ 
+        cy.get(this.campoNome).click();
+        cy.contains('User already exists').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    menssagemErro2(){ 
+        cy.get(this.campoEmail).click();
+        cy.contains('Informe seu nome completo').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    menssagemErro3(){ 
+        
+        cy.contains('').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    
+   
     logout(){
         cy.get(this.botãoOpções).click(); // Botão Perfil em Opções "Tela perfil"
-        cy.get(this.buttonSair).click();
+        cy.get(this.buttonSair).click(); // botão para SAIR do LOGIN
 
     }
 }
