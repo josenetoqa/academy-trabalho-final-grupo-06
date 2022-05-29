@@ -37,6 +37,9 @@ Scenario: criar lista de compras com quantidade menor que 1 de um determinado it
     Then status 400
 
 
+
+
+
     
 
 

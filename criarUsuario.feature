@@ -4,18 +4,18 @@ Desejo registar informações de usuário
 Para poder manipular estas informações livremente
 
 Background: Base url
-    Given url "https://crud-api-academy.herokuapp.com/api/v1"
+    Given url "https://lista-compras-api.herokuapp.com/api/v1/users"
     And path "users"
     * def userName = "Amanda Rodrigues"
     * def userNameUpdate = "Amanda Rodrigues"
     * def payload = {name: "Amanda Rodrigues", email: "aar.amanda@gmail.com"}
     
 Scenario: Criar usuário com sucesso
-    * def theo = Date.now() + "@qualquer.com"
-    And request { name: "brincos", email: "#(theo)"}
+    * def pacoca = Date.now() + "@qualquer.com"
+    And request { name: "pipoca", email: "#(pacoca)"}
     When method post 
     Then status 201
-    And match response contains { name: "brincos", email: "#(response.email)"}
+    And match response contains { name: "pipoca", email: "#(response.email)"}
     
 
 Scenario: Criar usuário sem email não deve ser possível
@@ -45,11 +45,11 @@ Scenario: Não deve ser possível criar usuário com email já utilizado
     And match response == { error: "User already exists." }
 
 Scenario: Não deve ser possível criar nome com mais de 100 caracteres
-    And request { name: "batatinhaquandonasceesparramapelochaoesobreissoenaoestatudobemvamosseguindopqavidaecomoeatristerealidadedapessoaquevivecomenxaqueca", email: "abcde@email.com"}
+    And request { name: "amandaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", email: "fghij@email.com"}
     When method post
     Then status 400
 
 Scenario: Não deve ser possível criar email com mais de 60 caracteres
-    And request { name: "Amanda", email: "socorrodeusserounaosereisaquestaoeuamoaterceiraleidenewtontudoquevemvolta@email.com"}
+    And request { name: "Amanda", email: "gabrielaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@email.com"}
     When method post
     Then status 400
