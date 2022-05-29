@@ -1,8 +1,0 @@
-{ 
-    "name": "#(name)", 
-    "email": "#(email)",
-    "password": "#(password)",
-    "id": "#(id)",
-    "is_admin": "#(isAdmin)",
-    "token": "#(token)"
-}
