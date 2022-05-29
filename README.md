@@ -22,7 +22,7 @@ Dentro da pasta do projeto clonado, digite `npm i` ou `npm install`  para instal
 
 
 
-
+___
 ## Testes funcionais e exploratórios
 
 Para os testes funcionais e exploratórios utilizamos um board no Trello para que possamos realizar toda a documentação desses testes.
@@ -30,17 +30,17 @@ Para os testes funcionais e exploratórios utilizamos um board no Trello para qu
 [Board Trello](https://trello.com/invite/b/dBIvX7q1/b5ff917c25a3543b1e1fb3c37fd95688/academy-trabalho-final-grupo-06)
 
 - Ao acessar o board irá conseguir realizar o acesso como um membro do projeto
-
+___
 ## Testes com Karate
 
 Para realizar os testes via Karate utilizando o BDD em conjunto. 
 
 Os testes .feature do karate podem ser encontrados na [pasta Src]
 
-# Rodando os testes
+### Rodando os testes
 
 
-
+___
 ## Teste via Cypress
 
  -  Para criação do cypress utilizamos o Cucumber pre processor podendo assim utilizar os BDD's criados para melhor utilização e patronização foi utilizado Page Objects.
@@ -51,7 +51,7 @@ Os testes .feature do karate podem ser encontrados na [pasta Src]
     - [Page Objects](.cypress/support/pages)  Dentro dessa pasta podem ser encontrados os arquivos referentes aos PageObjects Utilizado
     - [Steps Definitions](.cypress/support/steps)  Dentro dessa pasta podem ser encontrados os arquivos referente aos Steps Definitions para integrar o Cucumber
 
-# Rodando os testes
+### Rodando os testes
 
 Dentro da pasta do projeto,  digite `npx cypress open ` para abrir o painel do cypress ou `npx cypress run ` caso queira rodar em modo headless. 
 ___
