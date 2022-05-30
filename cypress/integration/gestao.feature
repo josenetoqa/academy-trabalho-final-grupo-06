@@ -34,7 +34,6 @@ Scenario: Se um item que já existe na lista sofrer uma nova tentativa de ser ad
     And  cadastro um novo item na lista com o mesmo nome utilizado anteriormente
     Then a lista foi criada com sucesso
     Then deslogo da plataforma
-@ignore
 Scenario: O usuário deve poder marcar um item como concluído
     When cadastro uma nova lista
     Then devo conseguir marcar um intem como concluido
