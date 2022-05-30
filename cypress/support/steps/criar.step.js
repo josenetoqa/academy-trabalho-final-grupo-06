@@ -1,10 +1,8 @@
-import {criarPage} from "../pages/criarPage.po";
+import {criarPage} from '../pages/criarPage.po';
 Given('acesso a tela principal', () => {
     criarPage.visitar()
     criarPage.registreSe()
 });
-
-
 When('informo os dados necessarios para registro de um novo usuario', (tabela) => {
     var dadosTabela = tabela.rowsHash();
     criarPage.preencherFormulario(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
@@ -16,8 +14,6 @@ Then('será permitido acesso ao sistema', () => {
 Then('visualizo a mensagem de erro', () => {
     criarPage.mensagemErro()
 });
-
-
 When('informo os dados necessarios para registro de um novo usuario sem nome', (tabela) => {
     var dadosTabela = tabela.rowsHash();
     criarPage.preencherFormulariosemnome(dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
@@ -30,7 +26,6 @@ When('informo os dados necessarios para registro de um novo usuario sem o nome e
     var dadosTabela = tabela.rowsHash();
     criarPage.preencherFormulariovazio(dadosTabela.senha, dadosTabela.confirmarSenha);
 });
-
 Then('visualizo a mensagem de erro sem nome', () => {
     criarPage.errosemnome()
 });
@@ -52,12 +47,8 @@ Then('visualizo a mensagem de erro email maior que o permitido', () => {
 Then('visualizo a mensagem de erro de nome invalido', () => {
     criarPage.erroname()
 });
-
-
-When("clico na opção voltar à pagina de login", () => {
+When('clico na opção voltar à pagina de login', () => {
     criarPage.voltar()
 });
-
-Then("volto para a tela principal", () => {
-
+Then('volto para a tela principal', () => {
 });

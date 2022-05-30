@@ -12,63 +12,63 @@ class Gestao{
     box ='.go3958317564'
     texterro = '.sc-papXJ'
 
-    inputdescricao(desc){
+inputdescricao(desc){
         cy.get(this.inputdesc).type(desc)
-    }
-    inputnameitem(item){
+}
+inputnameitem(item){
         cy.get(this.inputname).type(item)
-    }
-    inputquantidade(quantidade){
+}
+inputquantidade(quantidade){
         cy.get(this.inputquant).clear()
         cy.get(this.inputquant).type(quantidade)
-    }
-    btnadditem(){
+}
+btnadditem(){
         cy.get(this.btnadicionaritem).click()
-    }
-    btnsalvar(){
+}
+btnsalvar(){
         cy.get(this.btnadicionarlista).click()
-    }
-    btnconfirmar(){
+}
+btnconfirmar(){
         cy.get(this.btnfinalizarlista).click({force: true})
-    }
-    btnconcluir(){
+}
+btnconcluir(){
         cy.get(this.btnfinalizar).click()
-    }
-    logoff(){
+}
+logoff(){
         cy.get(this.menu).click()
         cy.get(this.sair).click()
-    }
-    titulo(){
+}
+titulo(){
         cy.get('h4').should('have.text','Adicionar novo item')
-    }
-    visit(){
+}
+visit(){
         cy.visit('/')
-    }
-    verificacaodecampo(){
+}
+verificacaodecampo(){
         cy.get(':nth-child(1) > .sc-ksZaOG').should('be.visible')
         cy.get(':nth-child(2) > .sc-ksZaOG').should('be.visible')
-    }
-    verificacaodelista(){
+}
+verificacaodelista(){
         cy.get('.kPGdrP').should('be.visible')
         cy.get('h1').should('be.visible')
-    }
-    listaconcluida() {
+}
+listaconcluida() {
         cy.get(this.box).should('have.text', 'Lista concluída com sucesso!')
-    }
-    listacriada() {
+}
+listacriada() {
         cy.get(this.box).should('have.text', 'Lista criada com sucesso!')    
-    }
-    erromenor(){
+}
+erromenor(){
         cy.get(this.texterro).should('have.text', 'Informe pelo menos 1 unidade')
-    }
-    erromaior(){
+}
+erromaior(){
         cy.get(this.texterro).should('have.text', 'Informe uma quantidade menor ou igual a 1000')
-    }
-    verificarcriacao(texto){
+}
+verificarcriacao(texto){
         cy.get('.sc-gicCDI').should('have.text' , texto)
-    }
-    marcar(){
+}
+marcar(){
         cy.get('.sc-himrzO').check().should('be.checked')
-    }
+}
 }
 export const gestao = new Gestao()

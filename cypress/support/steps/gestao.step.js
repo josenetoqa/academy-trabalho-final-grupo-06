@@ -1,5 +1,5 @@
-import { gestao } from "../pages/gestaoPage.po";
-import { login } from "../pages/loginPage.po";
+import { gestao } from '../pages/gestaoPage.po';
+import { login } from '../pages/loginPage.po';
 
 Given('acessei a pagina da aplicacao', () => {
 	gestao.visit()
