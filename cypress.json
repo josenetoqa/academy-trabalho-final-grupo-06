@@ -3,5 +3,6 @@
     "testFiles": "**/*.feature",
     "env": {
         "TAGS":  "not @ignore"
-    }
+    },
+    "projectId": "ayjzb8"
 }
