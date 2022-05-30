@@ -5,11 +5,12 @@ Feature: Login
 
 Background: Base URL
     Given url baseUrl
+    And path "auth/login"
     
     
 
 Scenario: logar no sistema com e-mail existente e senha correta
-    When request usuarioPadrao
+    When request usuarioLogin
     And method post
     Then status 200
 
