@@ -34,23 +34,23 @@ class acessPerfil{
         cy.get(this.senhaLogin).clear() // Limpar campo Senha "Tela Login"
         cy.get(this.senhaLogin).type("12345678"); // Preencher Senha "Tela Login"
         cy.get(this.botãoEntrar).click(); // Clicar no Botão Entrar "Tela Login"
-        cy.wait(1500)
+        cy.wait(500)
     }
   
     acessarPerfil(){
         cy.get(this.botãoOpções).click(); // Botão Perfil em Opções "Tela principal"
         cy.get(this.botãoPerfil).click(); // Botão Perfil em Perfil em Opções na "Tela principal" 
-        cy.wait(1500)
+        cy.wait(1000)
     }
 
     limparNome(){
         cy.get(this.campoNome).clear(); // Limpar campo Nome "Tela perfil"
-        cy.wait(1500)
+        cy.wait(500)
     }
 
     limparEmail(){
         cy.get(this.campoEmail).clear(); // Limpar campo Email "Tela perfil"  
-        cy.wait(1500)
+        cy.wait(500)
     }
     
     preencherNome(){
