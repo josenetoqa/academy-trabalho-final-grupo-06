@@ -19,8 +19,6 @@ When("informo os dados sem senha", (tabela) => {
     login.preencherSemSenha(dadosTabela.email);
 });
 
-
-
 Then('tenho acesso ao sistema', () => {
 	login.logou();
     login.deslogar();
