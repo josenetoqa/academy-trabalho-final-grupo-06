@@ -57,12 +57,40 @@ class acessPerfil{
         cy.get(this.campoNome).type("Guilherme Santos"); // Preencher campo Nome "Tela perfil"
     }
 
-    nomeM4(){
+    nomeMenor4(){
         cy.get(this.campoNome).type("Gui"); // Preencher campo Nome <4 caracteres "Tela perfil"
     }
-    
+
+    nomeIgual4(){
+        cy.get(this.campoNome).type("Guih"); // Preencher campo Nome =4 caracteres "Tela perfil"
+    }
+
+    nomeIgual100(){
+        cy.get(this.campoNome).type("Guilhermeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"); // Preencher campo Nome =4 caracteres "Tela perfil"
+    }
+
+    nomeMaior100(){
+        cy.get(this.campoNome).type("Guilhermeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"); // Preencher campo Nome =4 caracteres "Tela perfil"
+    }
+        
     preencherEmail(){
         cy.get(this.campoEmail).type("guilherme@raro.com"); // Preencher campo Email "Tela perfil"
+    }
+
+    emailIgual60(){
+        cy.get(this.campoEmail).type("guilhermeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee@raro.com"); // Preencher campo Email "Tela perfil"
+    }
+
+    emailMaior60(){
+        cy.get(this.campoEmail).type("guilhermeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee@raro.com"); // Preencher campo Email "Tela perfil"
+    }
+
+    emailArroba(){
+        cy.get(this.campoEmail).type("guilhermearaujoraro.com"); // Preencher campo Email já em uso "Tela perfil"
+    }
+
+    emailCom(){
+        cy.get(this.campoEmail).type("guilhermearaujo@raro"); // Preencher campo Email já em uso "Tela perfil"
     }
     
     emailUsado(){
@@ -102,10 +130,36 @@ class acessPerfil{
     }
 
     menssagemErro3(){ 
-        
-        cy.contains('').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        cy.get(this.campoEmail).click();
+        cy.contains('Informe no máximo 100 letras no seu nome').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
         
     }
+
+    menssagemErro4(){ 
+        cy.get(this.campoNome).click();
+        cy.contains('Informe no máximo 60 caracteres.').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    menssagemErro5(){ 
+        cy.get(this.campoNome).click();
+        cy.contains('Formato de e-mail inválido.').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    menssagemErro6(){ 
+        cy.get(this.campoEmail).click();
+        cy.contains('Informe seu nome').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    menssagemErro7(){ 
+        cy.get(this.campoNome).click();
+        cy.contains('Informe seu e-mail').should("be.visible"); // Visualizar mensagem de erro "Tela perfil"
+        
+    }
+
+    
 
     
    
