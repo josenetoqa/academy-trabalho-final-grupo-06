@@ -35,18 +35,8 @@ Scenario: Se um item que já existe na lista sofrer uma nova tentativa de ser ad
     Then a lista foi criada com sucesso
     Then deslogo da plataforma
 @ignore
-Scenario: Ao atualizar a quantidade do item, a nova quantidade total atualizada deste item não deve ultrapassar de 1000 unidades
-    When realizo o cadastro de uma nova lista
-    Then Devo conseguir atualizar a quantidade do item
-    And  A quantidade deve ser alterada com sucesso
-    Then deslogo da plataforma
 Scenario: O usuário deve poder marcar um item como concluído
     When cadastro uma nova lista
     Then devo conseguir marcar um intem como concluido
     Then deslogo da plataforma
-@ignore
-Scenario: O usuário pode finalizar a lista de compras. O status da lista não pode ser alterado após ter sido finalizada
-     When Após o cadastro de uma nova lista
-     When Finalizo essa lista criada
-     Then não consigo alterar a lista
-     Then deslogo da plataforma
+
