@@ -35,10 +35,13 @@ ___
 
 Para realizar os testes via Karate utilizando o BDD em conjunto. 
 
-Os testes .feature do karate podem ser encontrados na [pasta Src]
+Os testes .feature do karate podem ser encontrados na raiz da pasta.
 
 ### Rodando os testes
 
+- Dentro da pasta do projeto,  digite ` java -jar karate.jar *.feature ` roda os testes do Karate
+
+- Como o token vence de tempos em tempos e preciso substituir esse valor dentro do [karate-config.js](karate-config.js) na variavel token assim conseguirá rodar os testes sem problemas.
 
 ___
 ## Teste via Cypress
