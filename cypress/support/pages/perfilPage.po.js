@@ -14,10 +14,11 @@ class acessPerfil{
     menssagemSucessoAtualizar = '.go3958317564' // Mensagem de confirmação
     buttonSair = ':nth-child(4) > .sc-crXcEl > .sc-hHLeRK' // Botão Sair (logout)
     // AÇÔES
-logar(){         
+
+    logar(){         
         cy.visit('https://academy-lembra-compras.herokuapp.com/'); // Visitar 'Tela Login'
         cy.get(this.emailLogin).clear() // Limpar campo Email na 'Tela Login'
-        cy.get(this.emailLogin).type('guilherme@raro.com'); // Preencher Email 'Tela Login'
+        // Preencher Email 'Tela Login'
         cy.get(this.senhaLogin).clear() // Limpar campo Senha 'Tela Login'
         cy.get(this.senhaLogin).type('12345678'); // Preencher Senha 'Tela Login'
         cy.get(this.botãoEntrar).click(); // Clicar no Botão Entrar 'Tela Login'

@@ -1,5 +1,5 @@
 import { historicoLista } from '../pages/historicoLista.po';
-import { criarPage } from "../pages/historicoLista.po";
+import { criarPage } from "../pages/criarPage.po";
 import { login } from '../pages/loginPage.po';
 import {gestao} from '../pages/gestaoPage.po'
 
@@ -7,43 +7,6 @@ When('realizo o cadastro de uma nova lista', () => {
 	gestao.inputdescricao('desc')
 	gestao.inputnameitem('dessss')
 	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
-	gestao.inputdescricao('desc')
-	gestao.inputnameitem('dessss')
-	gestao.inputquantidade('10')
-	gestao.btnadditem()
 	gestao.btnsalvar()
 });
 Then('salvo a lista criada', () => {

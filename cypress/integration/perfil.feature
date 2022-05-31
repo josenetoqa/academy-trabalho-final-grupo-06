@@ -3,6 +3,12 @@
     Desejo poder atualizar as informações de um usuário
     Para ter os dados atualizadas
 
+Scenario: Registrar um novo usuário
+    Given acesso a tela principal
+    When informo os dados necessarios para registro de um usuario aleatorio
+        | nome           | Juba Princesa  |
+        | senha          | 123            |
+        | confirmarSenha | 123            |
 Scenario: Atualizar Nome de um usuário com sucesso
     Given acessei a tela de perfil
     When atualizo as informações de nome para um nome valido
