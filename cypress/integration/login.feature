@@ -5,14 +5,20 @@ Feature: Login
 
 Background: Cenario antes do teste
     Given acesso a pagina de Login  
+
+
+Scenario: Registrar um novo usuário
+    Given acesso a tela principal
+    When informo os dados necessarios para registro de um usuario aleatorio
+        | nome           | Juba Princesa  |
+        | senha          | 123            |
+        | confirmarSenha | 123            |
 Scenario: logar no sistema com e-mail existente e senha correta
-    When informo os dados
-        | email | romerito@raro.com |
+    When informo os dados aleatorios
         | senha | 123               |
     Then tenho acesso ao sistema
 Scenario: logar no sistema com e-mail existente e senha incorreta
-    When informo os dados
-        | email | romerito@raro.com |
+    When informo os dados aleatorios
         | senha | 12345             |
     Then visualizo a mensagem de erro "E-mail ou senha incorretos."
 Scenario: logar no sistema com e-mail não existente 

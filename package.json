@@ -15,6 +15,7 @@
     "step_definitions": "cypress/support/steps"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.1.0",
     "cypress-cucumber-preprocessor": "^4.3.1"
   }
 }

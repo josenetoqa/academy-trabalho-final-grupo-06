@@ -1,9 +1,20 @@
 import { gestao } from '../pages/gestaoPage.po';
 import { login } from '../pages/loginPage.po';
+import { criarPage } from "../pages/criarPage.po";
 
+
+Given('acesso a tela principal', () => {
+    login.visitar()
+    criarPage.registreSe()
+});
+When('informo os dados necessarios para registro de um usuario aleatorio', (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    criarPage.preencherFormularioaleatorio(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
+});
 Given('acessei a pagina da aplicacao', () => {
-	gestao.visit()
-	login.loginEmail('josepandia42@gmail.com')
+	cy.wait(1000)
+	gestao.visitar()
+	criarPage.emailcache()
 	login.loginSenha('123')
 	login.entrar()
 });

@@ -41,7 +41,7 @@ logoff(){
 titulo(){
         cy.get('h4').should('have.text','Adicionar novo item')
 }
-visit(){
+visitar(){
         cy.visit('/')
 }
 verificacaodecampo(){

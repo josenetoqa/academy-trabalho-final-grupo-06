@@ -1,3 +1,9 @@
+const { faker } = require('@faker-js/faker')
+
+const name = faker.datatype.string(5)
+const correto = name.toLowerCase();
+const randomEmail = faker.internet.email(correto, correto)
+
 class CriarPage {
 	nome = ':nth-child(1) > .sc-kDDrLX';
 	email = ':nth-child(2) > .sc-kDDrLX';
@@ -7,6 +13,9 @@ class CriarPage {
 	btnregistrar = '.sc-ftvSup';
 	box = '.go2072408551';
 	texterro = '.sc-papXJ';
+	btnentrar = '.sc-ftvSup'
+	senhalogin = 'input[name=password]'
+
 visitar() {
 		cy.visit('/');
 	}
@@ -23,11 +32,32 @@ atribuirEmail(email) {
 		cy.get(this.email).type(email);
 	}
 atribuirSenha(senha) {
-		cy.get(this.senha).type(senha);
+		cy.get(this.senha).type('123');
 	}
 atribuirConfirmarSenha(confirmarSenha) {
-		cy.get(this.confirmarSenha).type(confirmarSenha);
+		cy.get(this.confirmarSenha).type('123');
 	}
+entrar(){
+		cy.get(this.btnentrar).click()
+	}
+loginSenha(senha){
+		cy.get(this.senhalogin).type(senha)
+}
+emailcache(){
+	cy.get(this.email).type(randomEmail);
+}
+preencherFormularioaleatorio(nome, senha, confirmarSenha) {
+		this.atribuirNome(nome);
+		this.atribuirEmail(randomEmail);
+		this.atribuirSenha(senha);
+		this.atribuirConfirmarSenha(confirmarSenha);
+		cy.get(this.btnregistrar).click();
+	}
+preencherFormularioaleatoriologin(senha) {
+		this.atribuirEmail(randomEmail);
+		this.loginSenha(senha);
+		this.entrar();
+	}	
 preencherFormulario(nome, email, senha, confirmarSenha) {
 		this.atribuirNome(nome);
 		this.atribuirEmail(email);
@@ -96,22 +126,6 @@ erroname() {
 	}
 voltar() {
 		cy.get('.sc-crXcEl').click();
-	}
-mock() {
-		cy.intercept(
-			'POST',
-			'https://lista-compras-api.herokuapp.com/api/v1/users',
-			{
-				statusCode: 201,
-				body: [
-					{
-						name: 'Amanda Golsalves',
-						email: 'amandabff22@raro.com.br',
-						is_admin: true,
-					},
-				],
-			}
-		);
 	}
 }
 export var criarPage = new CriarPage();

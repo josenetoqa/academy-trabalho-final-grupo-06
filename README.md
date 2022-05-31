@@ -9,6 +9,7 @@
 - [Cypress](https://www.cypress.io/) (version 9.6.1 or greater)
 - [Cucumber Pre Processor](https://www.npmjs.com/package/cypress-cucumber-preprocessor)
 - [Karate](https://karatelabs.github.io/karate/)
+- [Faker](https://fakerjs.dev/guide/)
 
 > Para verificar a versão instalada do Node basta digitar `node -v` no terminal. O retorno será algo parecido com isso `v10.13.0`. Se não tiver o node instalado basta baixar no link acima
 

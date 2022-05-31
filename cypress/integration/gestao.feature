@@ -2,8 +2,15 @@ Feature: Gestão de lista de compras
     Como um usuário com conta no sistema
     Desejo gerenciar uma lista de compras
     Para registrar os produtos que desejo comprar.
+
 Background: Acesso e login na aplicacao
     Given acessei a pagina da aplicacao
+Scenario: Registrar um novo usuário
+    Given acesso a tela principal
+    When informo os dados necessarios para registro de um usuario aleatorio
+        | nome           | Juba Princesa  |
+        | senha          | 123            |
+        | confirmarSenha | 123            |
 Scenario: So deve ser possivel possuir uma lista ativa por vez
     When realizo o cadastro de uma nova lista 
     Then salvo a lista criada

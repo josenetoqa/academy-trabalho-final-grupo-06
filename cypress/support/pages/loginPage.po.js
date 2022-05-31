@@ -10,7 +10,7 @@ class Login {
     sair = '.sc-hHLeRK'
     
 visitar(){
-    cy.visit("https://academy-lembra-compras.herokuapp.com/login");
+    cy.visit("https://academy-lembra-compras.herokuapp.com");
 }
 loginEmail(email){
     cy.get(this.emaillogin).type(email)    
@@ -44,9 +44,5 @@ deslogar(){
 erroLogin(mensagemErro){
     cy.contains(mensagemErro).wait(2000).should("be.visible");
 }
-
-
-    
-
 }
 export var login = new Login(); 

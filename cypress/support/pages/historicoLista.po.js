@@ -2,12 +2,7 @@ class historico {
 	menu = '.sc-bjUoiL';
 	sair = '.sc-idiyUo > :nth-child(4)';
 
-login() {
-		cy.visit('https://academy-lembra-compras.herokuapp.com/login');
-		cy.get('input[name=email]').type('lendariopaodequeijo@email.com');
-		cy.get('input[name=password]').type('123321');
-		cy.contains('button', 'Entrar').click();
-}
+
 historico() {
 		cy.contains('a', 'Histórico').click();
 		cy.get('.sc-ehmTmK');

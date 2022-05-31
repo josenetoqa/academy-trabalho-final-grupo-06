@@ -3,12 +3,15 @@ Given('acesso a tela principal', () => {
     criarPage.visitar()
     criarPage.registreSe()
 });
+When('informo os dados necessarios para registro de um usuario aleatorio', (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    criarPage.preencherFormularioaleatorio(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
+});
 When('informo os dados necessarios para registro de um novo usuario', (tabela) => {
     var dadosTabela = tabela.rowsHash();
     criarPage.preencherFormulario(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
 });
 Then('será permitido acesso ao sistema', () => {
-    criarPage.mock()
     criarPage.mensagemSucesso()
 });
 Then('visualizo a mensagem de erro', () => {

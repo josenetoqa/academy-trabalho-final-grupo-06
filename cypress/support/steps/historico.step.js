@@ -1,7 +1,76 @@
 import { historicoLista } from '../pages/historicoLista.po';
+import { criarPage } from "../pages/historicoLista.po";
+import { login } from '../pages/loginPage.po';
+import {gestao} from '../pages/gestaoPage.po'
 
-Given('que estou logado no sistema', () => {
-	historicoLista.login();
+When('realizo o cadastro de uma nova lista', () => {
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.inputdescricao('desc')
+	gestao.inputnameitem('dessss')
+	gestao.inputquantidade('10')
+	gestao.btnadditem()
+	gestao.btnsalvar()
+});
+Then('salvo a lista criada', () => {
+	gestao.btnsalvar()
+	cy.wait(1000)
+});
+Then('finalizo a lista', () => {
+	gestao.titulo()
+	gestao.btnconfirmar()
+	cy.wait(1000)
+	gestao.btnconfirmar()
+	gestao.btnconcluir()
+});
+Given('acesso a tela principal', () => {
+    criarPage.visitar()
+    criarPage.registreSe()
+});
+When('informo os dados necessarios para registro de um usuario aleatorio', (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    criarPage.preencherFormularioaleatorio(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
+});
+Given('acessei a pagina da aplicacao', () => {
+	cy.wait(1000)
+	criarPage.visitar()
+	criarPage.emailcache()
+	login.loginSenha('123')
+	login.entrar()
 });
 And('acessei a tela de histórico de compras', () => {
 	historicoLista.historico();
