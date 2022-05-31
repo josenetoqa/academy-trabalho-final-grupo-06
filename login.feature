@@ -4,19 +4,24 @@ Feature: Login
     Para conseguir utilizar os serviços do Lembra Compras.
 
 Background: Base URL
+    * def emailAleatorio = Date.now() + "@raro.com" 
+    Given url baseUrl
+    And path "users"
+    When request {"name": "Romerito","email": "#(emailAleatorio)","password": "1234"}
+    And method post 
     Given url baseUrl
     And path "auth/login"
     
     
 
 Scenario: logar no sistema com e-mail existente e senha correta
-    When request usuarioLogin
+    When request {"email": "#(emailAleatorio)","password": "1234"}
     And method post
     Then status 200
 
 
 Scenario: logar no sistema com e-mail existente e senha incorreta
-    When request {"email": "romerito@raro.com","password": "1234"}
+    When request {"email": "#(emailAleatorio)","password": "8888"}
     And method post 
     Then status 403
     And match response contains {"error": "Invalid email or password."}

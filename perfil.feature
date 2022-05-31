@@ -4,30 +4,44 @@
     Para ter os dados atualizadas
 
     Background: Acessa a tela de usuario para alteração de dados
+        * def emailAleatorio = Date.now() + "@raro.com" 
+        * def emailAleatorioExiste = Date.now() + "1@raro.com"   
+        Given url baseUrl
+        And path "users"
+        When request {"name": "Romerito","email": "#(emailAleatorioExiste)","password": "1234"}  
+        And method post 
+        And path "users" 
+        When request {"name": "Romerito","email": "#(emailAleatorio)","password": "1234"}
+        And method post 
+        Given url baseUrl
+        And path "auth/login"
+        When request {"email":"#(emailAleatorio)","password": "1234"}
+        And method post 
+        * def token = response.session.token
         Given url baseUrl
         And path "/users"
         And header X-JWT-Token = token
       
         Scenario: Atualizar Nome de um usuário com sucesso
-            When request usuarioAleatorioPerfil
+            When request {"name": "Romerito2","email": "#(emailAleatorio)"}
             And method put
             Then status 200
             
        
         Scenario: Atualizar Email de um usuário com sucesso
-            When request emailAleatorioPerfil
+            When request {"name": "Romerito2","email": "#('romerito'+emailAleatorio)"}
             And method put
             Then status 200
 
         
         Scenario: Atualizar Nome e Email de um usuário com sucesso
-            When request usuarioPerfil
+            When request {"name": "Romerito3","email": "#('romerito3'+emailAleatorio)"}
             And method put
             Then status 200
 
         
         Scenario: Atualizar Email para um já em uso
-            When request emailExistentePerfil
+            When request {"name": "Romerito2","email": "#(emailAleatorioExiste)"}
             And method put
             Then status 422
             And match response contains {"error": "E-mail already in use."}
