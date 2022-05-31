@@ -3,27 +3,41 @@ Feature: Histórico de lista de compras
     Desejo consultar minhas últimas listas de compra
     Para visualizar minhas últimas compras
 
-Background: Acesso ao sistema
-    Given que estou logado no sistema
-    And acessei a tela de histórico de compras
+    Background: Acesso o historico de compras
+        Given url baseUrl
+        And path "list/history"
+        
     
-  Scenario:  O usuário só deve visualizar as suas próprias listas
-       Then o sistema apresenta as listas de compras realizadas
-       Then deslogo da plataforma
+        Scenario: Histórico de listas
+            And header X-JWT-Token = token
+            When method get
+            Then status 200
+            And match response contains [{id: "#string", userId: "#string", description: "#string", active: false, createdAt: "#string", updatedAt: "#string" }]
+            And match response == "#[10]"
+        
+        Scenario: inserir token inválido
+            And header X-JWT-Token = "asfg"
+            When method get
+            Then status 401
+            And match response contains {status: 401, message: "Invalid token."}
 
-   Scenario: O usuário precisa estar logado para visualizar seu histórico
-   Then o sistema permite vizualizar meu histórico de compras 
-   Then deslogo da plataforma
+        Scenario: Encontra lista inativa por ID
+            And header X-JWT-Token = token
+            And path "0993dfe0-40bb-45dc-9d97-f85e6807f4bc"
+            When method get
+            Then status 200
+            And match response contains {description: "#string", items: [ {id: "#string", listId: "#string", name: "#string", amount: 1, createdAt: "#string", updatedAt: "#string"}]}
 
-   Scenario: Apenas as últimas 10 listas mais recentes devem ser listadas no histórico
-       Then o sistema apresenta 10 listas de compras recentes
-       Then deslogo da plataforma
+        Scenario: Encontra lista inativa por ID com credenciais inválidas
+            And header X-JWT-Token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6IjkzMDc2YzliLWU1ZWQtNGM4Yy1hZDdkLWEwMTEzMmM5MmVmZSIsImlzX2FkbWluIjpmYWxzZSwiZW1haWwiOiJsZW5kYXJpb3Bhb2RlcXVlaWpvQGVtYWlsLmNvbSIsImRhdGVDcmVhdGVkIjoxNjUzOTQ5NjQwNzg2LCJpc3N1ZWQiOjE2NTM5NDk2NDA3ODYsImV4cGlyZXMiOjE2NTM5NTA1NDA3ODZ9.pIxbtas9D6xj6p0kYMiYnQMSvsuLpnzKoBZaIuIyrTaw34nMps1363qmT83dK_whjAx0GDN-uKosO7m-cTbDys"
+            And path "0993dfe0-40bb-45dc-9d97-f85e6807f4bc"
+            When method get
+            Then status 401
+            And match response contains {status:401, message :"Invalid token."}
 
-  Scenario: O nome da lista e data de criação devem ser listados para o usuário
-      Then é possível vizualizar nome e data de criação da lista
-      Then deslogo da plataforma
-    
-  Scenario: Deve ser possível consultar o nome e itens de uma lista após interagir com a lista no Histórico
-      When seleciono uma lista
-      Then o sistema permite consultar o nome e itens da lista
-      Then deslogo da plataforma
+        Scenario: Encontra lista inativa por ID
+            And header X-JWT-Token = token
+            And path "0993dfe0-40bb-45dc-9d97-f85e6807f4ba"
+            When method get
+            Then status 404
+            And match response contains {error: "List not found."}
