@@ -1,11 +1,33 @@
 import { perfil } from '../pages/perfilPage.po';
+import { criarPage } from "../pages/criarPage.po";
+import { login } from '../pages/loginPage.po';
 
+Given('acesso a tela principal', () => {
+    criarPage.visitar()
+    criarPage.registreSe()
+	cy.wait(1000)
+	
+});
+When('informo os dados necessarios para registro de um usuario aleatorio', (tabela) => {
+    var dadosTabela = tabela.rowsHash();
+    criarPage.preencherFormularioaleatorio(dadosTabela.nome,dadosTabela.email, dadosTabela.senha, dadosTabela.confirmarSenha);
+});
+Given('acessei a pagina da aplicacao', () => {
+	cy.wait(1000)
+	criarPage.visitar()
+	criarPage.emailcache()
+	login.loginSenha('123')
+	login.entrar()
+});
 // Pré-Condição
 Given('efetuei logout do sistema', () => {
 	perfil.logout();
 });
 Given('acessei a tela de perfil', () => {
-	perfil.logar();
+	cy.wait(1000)
+	criarPage.emailcache()
+	login.loginSenha('123')
+	login.entrar()
 	perfil.acessarPerfil();
 });
 //Cenarios
