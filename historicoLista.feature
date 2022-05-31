@@ -7,7 +7,7 @@ Feature: Histórico de lista de compras
         * def emailAleatorio = Date.now() + "@raro.com" 
          Given url baseUrl
         And path "users"
-   When request {"name": "Romerito","email": "#(emailAleatorio)","password": "1234"}
+        When request {"name": "Romerito","email": "#(emailAleatorio)","password": "1234"}
         And method post 
         Given url baseUrl
         And path "auth/login"
