@@ -58,7 +58,7 @@ Scenario: criar lista de compras com quantidade maior que 1000 de um determinado
     And header X-JWT-Token = token
     And request { description: "Supermercado", items: [{ name: "Jose duarte", amount: 1001}]}
     When method post
-    Then status 400
+    Then status 422
 
 Scenario: Desativar uma lista de compras
     * call read("hook.feature@login")

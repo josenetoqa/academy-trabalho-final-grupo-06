@@ -19,11 +19,8 @@
 
 Dentro da pasta do projeto clonado, digite `npm i` ou `npm install`  para instalar as dependencias necessárias.
 
-## BDD
-
-
-
 ___
+
 ## Testes funcionais e exploratórios
 
 Para os testes funcionais e exploratórios utilizamos um board no Trello para que possamos realizar toda a documentação desses testes.
