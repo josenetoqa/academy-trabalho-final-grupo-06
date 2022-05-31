@@ -4,8 +4,19 @@ Feature: Histórico de lista de compras
     Para visualizar minhas últimas compras
 
     Background: Acesso o historico de compras
+        * def emailAleatorio = Date.now() + "@raro.com" 
+         Given url baseUrl
+        And path "users"
+   When request {"name": "Romerito","email": "#(emailAleatorio)","password": "1234"}
+        And method post 
+        Given url baseUrl
+        And path "auth/login"
+        When request {"email":"#(emailAleatorio)","password": "1234"}
+        And method post 
+        * def token = response.session.token
         Given url baseUrl
         And path "list/history"
+        And header X-JWT-Token = token
         
     
         Scenario: Histórico de listas
